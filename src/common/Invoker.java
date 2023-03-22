@@ -1,3 +1,5 @@
+package common;
+
 import commands.*;
 import java.util.HashMap;
 
@@ -8,6 +10,8 @@ public class Invoker {
         commands.put("help", new HelpCommand());
         commands.put("exit", new ExitCommand());
         commands.put("add", new AddCommand());
+        commands.put("info", new InfoCommand());
+        commands.put("show", new ShowCommand());
 
     }
 

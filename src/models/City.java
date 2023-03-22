@@ -6,30 +6,6 @@ import java.util.Date;
 public class City {
     private java.time.LocalDateTime creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
     private Long id; //Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
-    public City (String name, Coordinates coordinates, /* double */ Long population, int metersAboveSeaLevel,
-                 Climate climate, Government government, StandardOfLiving standardOfLiving, Human governor){
-        Date date = new Date();
-        id = date.getTime();
-        creationDate = LocalDateTime.now();
-    }
-
-    public void setName (String name){
-        this.name=name;
-    }
-
-    public String getName (){
-        return name;
-    }
-
-    public void setPopulation (Long population){
-        this.population=population;
-    }
-
-    public Long getPopulation (){
-        return population;
-    }
-
-
     private String name; //Поле не может быть null, Строка не может быть пустой
     private Coordinates coordinates; //Поле не может быть null
 
@@ -40,4 +16,54 @@ public class City {
     private Government government; //Поле может быть null
     private StandardOfLiving standardOfLiving; //Поле может быть null
     private Human governor; //Поле может быть null
+    public City (String name, Coordinates coordinates, /* double */ Long population, int metersAboveSeaLevel,
+                 Climate climate, Government government, StandardOfLiving standardOfLiving, Human governor){
+        Date date = new Date();
+        id = date.getTime();
+        creationDate = LocalDateTime.now();
+        this.name = name;
+    }
+    public void setCreationDate (java.time.LocalDateTime creationDate){
+        if (creationDate == null) {
+            throw new NullPointerException("Field creationDate can not be null");
+
+        }
+        this.creationDate=creationDate;
+    }
+
+    public java.time.LocalDateTime getCreationDate (){
+        return creationDate;
+    }
+
+    public void setName (String name){
+        if (name == null) {
+            throw new NullPointerException("Field name can not be null");
+
+        }
+
+        this.name = name;
+    }
+
+    public String getName (){
+        return name;
+    }
+
+    public void setPopulation (Long population){
+        if (population == null ) {
+            throw new NullPointerException("Field population can not be null or less than 0");
+
+        }
+        if (population <= 0){
+            throw new IllegalArgumentException("Field population can not be less or equals than 0");
+        }
+        this.population=population;
+    }
+
+    public Long getPopulation (){
+        return population;
+    }
+    @Override
+    public String toString(){
+        return String.format("Name: %s", name);
+    }
 }

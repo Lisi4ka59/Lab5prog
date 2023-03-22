@@ -1,7 +1,16 @@
+package common;
+
+import common.Invoker;
+import models.City;
+import models.CityLinkedList;
+
+import java.util.LinkedList;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class Main {
+
+    public static CityLinkedList cities = new CityLinkedList();
     public static void main(String[] args) {
         Invoker invoker = new Invoker();
         Scanner scanner = new Scanner(System.in);
