@@ -1,6 +1,4 @@
-import commands.Command;
-import commands.HelpCommand;
-
+import commands.*;
 import java.util.HashMap;
 
 public class Invoker {
@@ -8,6 +6,8 @@ public class Invoker {
     HashMap<String, Command> commands = new HashMap<>();
     public Invoker () {
         commands.put("help", new HelpCommand());
+        commands.put("exit", new ExitCommand());
+        commands.put("add", new AddCommand());
 
     }
 
@@ -18,9 +18,10 @@ public class Invoker {
             Command cmd = commands.get(commandText);
             cmd.execute();
         }
-        else
-        {
-            System.out.println("Unknown command. For help print 'help'");
+        else {
+            if (!commandText.trim().isEmpty()) {
+                System.out.println("Unknown command. Type \"help\" to see list of commands");
+            }
         }
     }
 
