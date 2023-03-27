@@ -4,13 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1cf6ba1b-2ea0-4889-b878-1e9abe46aaf0" name="Changes" comment="add commands: AddCommand, InfoCommand, ShowCommand&#10;add collection">
+    <list default="true" id="1cf6ba1b-2ea0-4889-b878-1e9abe46aaf0" name="Changes" comment="improve AddCommand&#10;write get and set into City">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab5pr.iml" beforeDir="false" afterPath="$PROJECT_DIR$/lab5pr.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/commands/AddCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/AddCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/exceptions/NoSuchElementException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commands/ClearCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/ClearCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commands/RemoveFirstCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/RemoveFirstCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commands/RemoveHeadCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/RemoveHeadCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commands/SaveCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/SaveCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/Invoker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/Invoker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/City.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/City.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/Coordinates.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Coordinates.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Human.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Human.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +46,10 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
@@ -49,6 +58,9 @@
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -64,6 +76,10 @@
       <workItem from="1679324026806" duration="2085000" />
       <workItem from="1679501462193" duration="1377000" />
       <workItem from="1679503786948" duration="3939000" />
+      <workItem from="1679759111371" duration="4970000" />
+      <workItem from="1679829679156" duration="3659000" />
+      <workItem from="1679840450898" duration="15000" />
+      <workItem from="1679937963402" duration="815000" />
     </task>
     <task id="LOCAL-00001" summary="add commands: AddCommand, InfoCommand, ShowCommand&#10;add collection">
       <created>1679512994195</created>
@@ -72,7 +88,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679512994195</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="improve AddCommand&#10;write get and set into City">
+      <created>1679522168500</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1679522168500</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -80,6 +103,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add commands: AddCommand, InfoCommand, ShowCommand&#10;add collection" />
-    <option name="LAST_COMMIT_MESSAGE" value="add commands: AddCommand, InfoCommand, ShowCommand&#10;add collection" />
+    <MESSAGE value="improve AddCommand&#10;write get and set into City" />
+    <option name="LAST_COMMIT_MESSAGE" value="improve AddCommand&#10;write get and set into City" />
   </component>
 </project>

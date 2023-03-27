@@ -12,6 +12,10 @@ public class Invoker {
         commands.put("add", new AddCommand());
         commands.put("info", new InfoCommand());
         commands.put("show", new ShowCommand());
+        commands.put("clear", new ClearCommand());
+        commands.put("remove_first", new RemoveFirstCommand());
+        commands.put("remove_head", new RemoveHeadCommand());
+        commands.put("save", new SaveCommand());
 
     }
 

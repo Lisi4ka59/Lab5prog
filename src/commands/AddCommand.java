@@ -24,8 +24,7 @@ public class AddCommand implements Command{
         Long population = Long.valueOf(scanner.nextLine());
         System.out.print("Enter city area > 0: ");
         double area = Long.valueOf(scanner.nextLine());
-        System.out.print("Enter the height of the city above sea level: ");
-        int metersAboveSeaLevel = Integer.valueOf(scanner.nextLine());
+        int metersAboveSeaLevel = inputInteger("Enter the height of the city above sea level: ");
 
         System.out.print("Choose city climate\n1. TROPICAL_SAVANNA\n" +
                 "2. HUMIDCONTINENTAL\n" +
@@ -36,10 +35,10 @@ public class AddCommand implements Command{
         if (climateNumber == 1){
             climate = Climate.TROPICAL_SAVANNA;
         }
-        if (climateNumber == 2){
+        else if (climateNumber == 2){
             climate = Climate.HUMIDCONTINENTAL;
         }
-        if (climateNumber == 3){
+        else if (climateNumber == 3){
             climate = Climate.OCEANIC;
         }
         else {
@@ -55,10 +54,10 @@ public class AddCommand implements Command{
         if (governmentNumber == 1){
             government = Government.ANARCHY;
         }
-        if (governmentNumber == 2){
+        else if (governmentNumber == 2){
             government = Government.COMMUNISM;
         }
-        if (governmentNumber == 3){
+        else if (governmentNumber == 3){
             government = Government.MERITOCRACY;
         }
         else {
@@ -75,16 +74,16 @@ public class AddCommand implements Command{
         if (standardOfLivingNumber == 1){
             standardOfLiving = StandardOfLiving.ULTRA_HIGH;
         }
-        if (standardOfLivingNumber == 2){
+        else if (standardOfLivingNumber == 2){
             standardOfLiving = StandardOfLiving.HIGH;
         }
-        if (standardOfLivingNumber == 3){
+        else if (standardOfLivingNumber == 3){
             standardOfLiving = StandardOfLiving.VERY_LOW;
         }
-        if (standardOfLivingNumber == 4){
+        else if (standardOfLivingNumber == 4){
             standardOfLiving = StandardOfLiving.ULTRA_LOW;
         }
-        if (standardOfLivingNumber == 5){
+        else if (standardOfLivingNumber == 5){
             standardOfLiving = StandardOfLiving.NIGHTMARE;
         }
         else {
@@ -105,5 +104,21 @@ public class AddCommand implements Command{
         System.out.println("Congratulations! City added to collection");
         City city = new City(name, coordinates, population, area, metersAboveSeaLevel, climate, government, standardOfLiving, governor);
         Main.cities.add(city);
+    }
+
+    private static int inputInteger(String prompt ) {
+        Scanner scanner = new Scanner(System.in);
+
+        boolean right = false;
+        do {
+            System.out.print(prompt);
+            right =scanner.hasNextInt();
+            if (!right) {
+                System.out.println("The entered value is not integer, enter correct value");
+                scanner.nextLine();
+            }
+        } while (!right);
+        int value = Integer.valueOf(scanner.nextLine());
+        return value;
     }
 }

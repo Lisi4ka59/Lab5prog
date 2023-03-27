@@ -1,9 +1,15 @@
 package models;
 
+import com.github.cliftonlabs.json_simple.JsonObject;
+import com.github.cliftonlabs.json_simple.Jsonable;
+
+import java.io.IOException;
+import java.io.StringWriter;
+import java.io.Writer;
 import java.time.LocalDateTime;
 import java.util.Date;
 
-public class City {
+public class City implements Jsonable {
     private java.time.LocalDateTime creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
     private Long id; //Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
     private String name; //Поле не может быть null, Строка не может быть пустой
@@ -21,6 +27,9 @@ public class City {
         id = date.getTime();
         creationDate = LocalDateTime.now();
         this.name = name;
+        this.coordinates = coordinates;
+        this.population = population;
+        this.area = area;
     }
     public void setCreationDate (java.time.LocalDateTime creationDate){
         if (creationDate == null) {
@@ -160,5 +169,25 @@ public class City {
     @Override
     public String toString(){
         return String.format("Name: %s", name);
+    }
+
+    @Override
+    public String toJson() {
+        final StringWriter writable = new StringWriter();
+        try {
+            this.toJson(writable);
+        } catch (final IOException e) {
+        }
+        return writable.toString();
+    }
+
+    @Override
+    public void toJson(Writer writer) throws IOException {
+        final JsonObject json = new JsonObject();
+        json.put("name", this.getName());
+        json.put("coordinates", this.getcoordinates());
+        json.put("population", this.getPopulation());
+        json.put("area", this.getArea());
+        json.toJson(writer);
     }
 }
