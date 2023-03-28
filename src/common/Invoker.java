@@ -16,6 +16,7 @@ public class Invoker {
         commands.put("remove_first", new RemoveFirstCommand());
         commands.put("remove_head", new RemoveHeadCommand());
         commands.put("save", new SaveCommand());
+        commands.put("load", new LoadCommand());
 
     }
 
