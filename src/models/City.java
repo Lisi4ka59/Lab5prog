@@ -1,7 +1,9 @@
 package models;
 
+import com.github.cliftonlabs.json_simple.JsonKey;
 import com.github.cliftonlabs.json_simple.JsonObject;
 import com.github.cliftonlabs.json_simple.Jsonable;
+import com.github.cliftonlabs.json_simple.Jsoner;
 
 import java.io.IOException;
 import java.io.StringWriter;
@@ -9,7 +11,7 @@ import java.io.Writer;
 import java.time.LocalDateTime;
 import java.util.Date;
 
-public class City implements Jsonable {
+public class City implements Jsonable, Comparable<City> {
     private java.time.LocalDateTime creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
     private Long id; //Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
     private String name; //Поле не может быть null, Строка не может быть пустой
@@ -31,6 +33,23 @@ public class City implements Jsonable {
         this.population = population;
         this.area = area;
     }
+
+    public City (JsonObject jsonObject){
+
+        final JsonKey nameKey = Jsoner.mintJsonKey("name", "");
+        final JsonKey coordinatesKey = Jsoner.mintJsonKey("coordinates", "");
+        final JsonKey xKey = Jsoner.mintJsonKey("x", "");
+        final JsonKey yKey = Jsoner.mintJsonKey("y", "");
+        Date date = new Date();
+        id = date.getTime();
+        creationDate = LocalDateTime.now();
+        this.name = jsonObject.getString(nameKey);
+        JsonObject jo  = (JsonObject)jsonObject.get ("coordinates");
+        this.coordinates = new Coordinates(jo.getDouble(xKey),jo.getFloat(yKey));
+        this.population = population;
+        this.area = area;
+    }
+
     public void setCreationDate (java.time.LocalDateTime creationDate){
         if (creationDate == null) {
             throw new NullPointerException("Field creationDate can not be null");
@@ -65,7 +84,7 @@ public class City implements Jsonable {
         this.coordinates = coordinates;
     }
 
-    public Coordinates getcoordinates (){
+    public Coordinates getCoordinates(){
         return coordinates;
     }
 
@@ -168,7 +187,8 @@ public class City implements Jsonable {
     }
     @Override
     public String toString(){
-        return String.format("Name: %s", name);
+
+        return String.format("Name: %s\nID: %d\nCoordinates: %s\n", name, getId(), getCoordinates());
     }
 
     @Override
@@ -185,9 +205,24 @@ public class City implements Jsonable {
     public void toJson(Writer writer) throws IOException {
         final JsonObject json = new JsonObject();
         json.put("name", this.getName());
-        json.put("coordinates", this.getcoordinates());
+        json.put("id", this.getId());
+        json.put("coordinates", this.getCoordinates());
         json.put("population", this.getPopulation());
         json.put("area", this.getArea());
+        json.put("meters_above_sea_level", this.getMetersAboveSeaLevel());
+        json.put("climate", this.getClimate());
+        json.put("government", this.getGovernment());
+        json.put("standard_of_living", this.getStandardOfLiving());
+        json.put("governor", this.getGovernor());
+        json.put("creationDate", this.getCreationDate().toString());
         json.toJson(writer);
+    }
+
+    @Override
+    public int compareTo(City o) {
+        if (o!=null)
+            return  -name.compareToIgnoreCase(o.name);
+        else
+            return 1;
     }
 }

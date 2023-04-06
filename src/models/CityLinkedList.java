@@ -8,6 +8,7 @@ import java.io.StringWriter;
 import java.io.Writer;
 import java.time.LocalDateTime;
 import java.util.LinkedList;
+import java.util.Optional;
 
 public class CityLinkedList extends LinkedList<City> implements Jsonable {
     private LocalDateTime creationDate;
@@ -15,7 +16,13 @@ public class CityLinkedList extends LinkedList<City> implements Jsonable {
         super();
         creationDate = LocalDateTime.now();
     }
+    public void addIfMin (City city){
+        City minCity = stream().min(new CityComparator()).get();
 
+        if (new CityComparator().compare(minCity, city)<0)
+            add(city);
+
+    }
     public LocalDateTime getCreationDate() {
         return creationDate;
     }

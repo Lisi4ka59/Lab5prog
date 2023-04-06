@@ -109,7 +109,7 @@ public class AddCommand implements Command{
     private static int inputInteger(String prompt ) {
         Scanner scanner = new Scanner(System.in);
 
-        boolean right = false;
+        boolean right;
         do {
             System.out.print(prompt);
             right =scanner.hasNextInt();

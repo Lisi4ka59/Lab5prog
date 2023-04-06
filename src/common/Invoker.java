@@ -17,6 +17,9 @@ public class Invoker {
         commands.put("remove_head", new RemoveHeadCommand());
         commands.put("save", new SaveCommand());
         commands.put("load", new LoadCommand());
+        commands.put("remove_by_id", new RemoveByIdCommand());
+        commands.put("update_id", new UpdateIdCommand());
+        commands.put("print_descending", new PrintDescendingCommand());
 
     }
 
@@ -33,6 +36,4 @@ public class Invoker {
             }
         }
     }
-
-
 }

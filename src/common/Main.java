@@ -1,10 +1,6 @@
 package common;
 
-import common.Invoker;
-import models.City;
 import models.CityLinkedList;
-
-import java.util.LinkedList;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 

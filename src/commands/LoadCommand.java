@@ -1,8 +1,9 @@
 package commands;
 
-import com.github.cliftonlabs.json_simple.JsonException;
-import com.github.cliftonlabs.json_simple.JsonObject;
-import com.github.cliftonlabs.json_simple.Jsoner;
+import com.github.cliftonlabs.json_simple.*;
+import common.Main;
+import models.City;
+import models.CityLinkedList;
 
 import java.io.IOException;
 import java.io.Reader;
@@ -23,7 +24,19 @@ public class LoadCommand implements Command{
 
             JsonObject jsonObject = (JsonObject) Jsoner.deserialize(reader);
 
-            System.out.println();
+            JsonArray jsonArray = (JsonArray)jsonObject.get("cities");
+
+            cities=new CityLinkedList();
+
+            for (Object obj: jsonArray) {
+                JsonObject jo = (JsonObject) obj;
+
+                City city = new City(jo);
+                cities.add(city);
+            }
+
+
+            System.out.println("Collection uploaded");
         } catch (JsonException e) {
             throw new RuntimeException(e);
 
@@ -32,7 +45,4 @@ public class LoadCommand implements Command{
                 throw new RuntimeException(e);
             }
     }
-
-
-
 }

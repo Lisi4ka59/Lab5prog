@@ -39,4 +39,8 @@ public class Coordinates implements Jsonable {
         json.put("y", this.getY());
         json.toJson(writer);
     }
+    @Override
+    public String toString (){
+        return String.format("x = %.2f, y = %.2f\n", x, y);
+    }
 }
