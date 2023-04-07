@@ -5,22 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1cf6ba1b-2ea0-4889-b878-1e9abe46aaf0" name="Changes" comment="improve SaveCommand&#10;make LoadCommand">
-      <change afterPath="$PROJECT_DIR$/src/models/CityComparator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/apache_lang_commons.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/github_cliftonlabs_json_simple.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common/Checker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common/CityReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab5pr.iml" beforeDir="false" afterPath="$PROJECT_DIR$/lab5pr.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/commands/AddCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/AddCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commands/AddIfMinCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/AddIfMinCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commands/HelpCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/HelpCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commands/LoadCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/LoadCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commands/PrintDescendingCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/PrintDescendingCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commands/RemoveByIdCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/RemoveByIdCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commands/SaveCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/SaveCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commands/ShowCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/ShowCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commands/UpdateIdCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/UpdateIdCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commands/PrintUniqueStandardOfLivingCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/PrintUniqueStandardOfLivingCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/common/Invoker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/Invoker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/City.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/City.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/CityLinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/CityLinkedList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Coordinates.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Coordinates.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Climate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Climate.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,27 +44,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Марина/IdeaProjects/lab5proga&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -90,6 +86,9 @@
       <workItem from="1680458490658" duration="3361000" />
       <workItem from="1680541252508" duration="6049000" />
       <workItem from="1680689528027" duration="7969000" />
+      <workItem from="1680869319786" duration="2284000" />
+      <workItem from="1680875378222" duration="1483000" />
+      <workItem from="1680882560515" duration="7900000" />
     </task>
     <task id="LOCAL-00001" summary="add commands: AddCommand, InfoCommand, ShowCommand&#10;add collection">
       <created>1679512994195</created>

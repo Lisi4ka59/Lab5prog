@@ -20,7 +20,7 @@ public class Invoker {
         commands.put("remove_by_id", new RemoveByIdCommand());
         commands.put("update_id", new UpdateIdCommand());
         commands.put("print_descending", new PrintDescendingCommand());
-
+        commands.put("print_unique_standard_of_living", new PrintUniqueStandardOfLivingCommand());
     }
 
     public void run(String commandText)

@@ -1,19 +1,43 @@
-package commands;
+package common;
+
+import models.Coordinates;
+
+import static common.Checker.*;
+
+public class CityReader {
+    public static String inputName() {
+        String name = inputStringNotNull("City name (name can not be null): ");
+        return name;
+    }
+
+    public static Coordinates inputCoordinates() {
+        double x = inputDouble("City coordinates\nEnter coordinate X (X must be more than -25): ");
+        float y = inputFloat("Enter coordinate Y: ");
+        Coordinates coordinates = new Coordinates(x, y);
+        return coordinates;
+    }
+
+    public static long inputPopulation() {
+        long population = inputLong("Enter city population (population must be more than 0): ");
+        return population;
+    }
+
+    public static double inputArea() {
+        double area = inputDouble("Enter city area (area must be more than 0): ");
+        return area;
+    }
+
+    public static int inputMetersAboveSeaLevel() {
+        int metersAboveSeaLevel = inputInteger("Enter the height of the city above sea level: ");
+        return metersAboveSeaLevel;
+    }
+}
 
 
-import common.Main;
-import models.*;
+/*
 
-import java.util.Date;
-import java.util.Scanner;
+    int metersAboveSeaLevel = inputInteger("Enter the height of the city above sea level: ");
 
-import static common.CityReader.inputCoordinates;
-
-public class AddCommand implements Command {
-    @Override
-    public void execute() {
-        Scanner scanner = new Scanner(System.in);
-        Coordinates coordinates = inputCoordinates();
         System.out.print("Choose city climate\n1. TROPICAL_SAVANNA\n" +
                 "2. HUMIDCONTINENTAL\n" +
                 "3. OCEANIC\n" +
@@ -79,7 +103,9 @@ public class AddCommand implements Command {
         Human governor = new Human(age, birthday);
 
         System.out.println("Congratulations! City added to collection");
-        City city = new City("P", coordinates, 233421412l, 13, 123, climate, government, standardOfLiving, governor);
+        City city = new City(name, coordinates, population, area, metersAboveSeaLevel, climate, government, standardOfLiving, governor);
         Main.cities.add(city);
     }
 }
+*/
+

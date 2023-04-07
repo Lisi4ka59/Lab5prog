@@ -32,6 +32,11 @@ public class City implements Jsonable, Comparable<City> {
         this.coordinates = coordinates;
         this.population = population;
         this.area = area;
+        this.climate = climate;
+        this.standardOfLiving = standardOfLiving;
+        this.government = government;
+        this. governor = governor;
+        this. metersAboveSeaLevel = metersAboveSeaLevel;
     }
 
     public City (JsonObject jsonObject){
@@ -40,6 +45,9 @@ public class City implements Jsonable, Comparable<City> {
         final JsonKey coordinatesKey = Jsoner.mintJsonKey("coordinates", "");
         final JsonKey xKey = Jsoner.mintJsonKey("x", "");
         final JsonKey yKey = Jsoner.mintJsonKey("y", "");
+        final JsonKey standardOfLivingKey = Jsoner.mintJsonKey("standard_of_living", "");
+        final JsonKey governmentKey = Jsoner.mintJsonKey("government", "");
+        final JsonKey climateKey = Jsoner.mintJsonKey("climate", "");
         Date date = new Date();
         id = date.getTime();
         creationDate = LocalDateTime.now();
@@ -48,6 +56,11 @@ public class City implements Jsonable, Comparable<City> {
         this.coordinates = new Coordinates(jo.getDouble(xKey),jo.getFloat(yKey));
         this.population = population;
         this.area = area;
+
+        this.standardOfLiving =StandardOfLiving.valueOf(jsonObject.getString(standardOfLivingKey));
+        this.government =Government.valueOf(jsonObject.getString(governmentKey));
+        this.climate =Climate.valueOf(jsonObject.getString(climateKey));
+
     }
 
     public void setCreationDate (java.time.LocalDateTime creationDate){
@@ -188,7 +201,7 @@ public class City implements Jsonable, Comparable<City> {
     @Override
     public String toString(){
 
-        return String.format("Name: %s\nID: %d\nCoordinates: %s\n", name, getId(), getCoordinates());
+        return String.format("Name: %s\nID: %d\nCoordinates: %sStandard of living: %s\nGovernment: %s\nClimate: %s\n", name, getId(), getCoordinates(), getStandardOfLiving(), getGovernment(), getClimate());
     }
 
     @Override
@@ -210,10 +223,10 @@ public class City implements Jsonable, Comparable<City> {
         json.put("population", this.getPopulation());
         json.put("area", this.getArea());
         json.put("meters_above_sea_level", this.getMetersAboveSeaLevel());
-        json.put("climate", this.getClimate());
-        json.put("government", this.getGovernment());
-        json.put("standard_of_living", this.getStandardOfLiving());
-        json.put("governor", this.getGovernor());
+        json.put("climate", this.getClimate().name());
+        json.put("government", this.getGovernment().name());
+        json.put("standard_of_living", this.getStandardOfLiving().name());
+        //json.put("governor", this.getGovernor());
         json.put("creationDate", this.getCreationDate().toString());
         json.toJson(writer);
     }
