@@ -141,16 +141,5 @@ public class Checker {
         } while (!right);
         return string;
     }
-    public static Climate inputClimate(String prompt){
 
-        System.out.print("Choose city climate\n1. TROPICAL_SAVANNA\n" +
-                "2. HUMIDCONTINENTAL\n" +
-                "3. OCEANIC\n" +
-                "4. STEPPE\n ");
-        int climateNumber = inputInteger("Enter a number:");
-
-        return Climate.fromInt(climateNumber);
-
-
-    }
 }

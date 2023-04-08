@@ -4,18 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1cf6ba1b-2ea0-4889-b878-1e9abe46aaf0" name="Changes" comment="improve SaveCommand&#10;make LoadCommand">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/apache_lang_commons.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/github_cliftonlabs_json_simple.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/common/Checker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/common/CityReader.java" afterDir="false" />
+    <list default="true" id="1cf6ba1b-2ea0-4889-b878-1e9abe46aaf0" name="Changes" comment="improve AddCommand">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab5pr.iml" beforeDir="false" afterPath="$PROJECT_DIR$/lab5pr.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commands/AddCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/AddCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commands/PrintUniqueStandardOfLivingCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/PrintUniqueStandardOfLivingCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/Invoker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/Invoker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/City.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/City.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Climate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Climate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/Checker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/Checker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/CityReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/CityReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Government.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Government.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/StandardOfLiving.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/StandardOfLiving.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +29,9 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2NHJw5AB5fQWCed7Gp0c1P5LrZi" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -88,7 +85,8 @@
       <workItem from="1680689528027" duration="7969000" />
       <workItem from="1680869319786" duration="2284000" />
       <workItem from="1680875378222" duration="1483000" />
-      <workItem from="1680882560515" duration="7900000" />
+      <workItem from="1680882560515" duration="8042000" />
+      <workItem from="1680961606148" duration="3063000" />
     </task>
     <task id="LOCAL-00001" summary="add commands: AddCommand, InfoCommand, ShowCommand&#10;add collection">
       <created>1679512994195</created>
@@ -118,18 +116,37 @@
       <option name="project" value="LOCAL" />
       <updated>1679988306994</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="improve AddCommand">
+      <created>1680899159006</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1680899159006</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add commands: AddCommand, InfoCommand, ShowCommand&#10;add collection" />
     <MESSAGE value="improve AddCommand&#10;write get and set into City" />
     <MESSAGE value="improve addCommand, Invoker&#10;make city, coordinates jsonable&#10;make SaveCommand, ClearCommand, RemoveFirstCommand, RemoveHeadCommand," />
     <MESSAGE value="improve SaveCommand&#10;make LoadCommand" />
-    <option name="LAST_COMMIT_MESSAGE" value="improve SaveCommand&#10;make LoadCommand" />
+    <MESSAGE value="improve AddCommand" />
+    <option name="LAST_COMMIT_MESSAGE" value="improve AddCommand" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

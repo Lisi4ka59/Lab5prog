@@ -1,6 +1,9 @@
 package common;
 
+import models.Climate;
 import models.Coordinates;
+import models.Government;
+import models.StandardOfLiving;
 
 import static common.Checker.*;
 
@@ -30,6 +33,59 @@ public class CityReader {
     public static int inputMetersAboveSeaLevel() {
         int metersAboveSeaLevel = inputInteger("Enter the height of the city above sea level: ");
         return metersAboveSeaLevel;
+    }
+    public static Climate inputClimate(){
+        Boolean right;
+        int climateNumber;
+        do {
+            right = true;
+            System.out.print("Choose city climate\n1. TROPICAL_SAVANNA\n" +
+                    "2. HUMIDCONTINENTAL\n" +
+                    "3. OCEANIC\n" +
+                    "4. STEPPE\n");
+            climateNumber = inputInteger("Enter a number:");
+            if (!(climateNumber>=1 && climateNumber<=4)){
+                right = false;
+                System.out.println("Input value is not correct!");
+            }
+        } while (right);
+        return Climate.fromInt(climateNumber);
+    }
+    public static Government inputGovernment(){
+        Boolean right;
+        int governmentNumber;
+        do {
+            right = true;
+            System.out.print("Choose city government\n1. ANARCHY\n" +
+                    "2. COMMUNISM\n" +
+                    "3. MERITOCRACY\n" +
+                    "4. ETHNOCRACY\n");
+            governmentNumber = inputInteger("Enter a number:");
+            if (!(governmentNumber>=1 && governmentNumber<=4)){
+                right = false;
+                System.out.println("Input value is not correct!");
+            }
+        } while (right);
+        return Government.fromInt(governmentNumber);
+    }
+    public static StandardOfLiving inputStandardOfLiving(){
+        Boolean right;
+        int standardOfLivingNumber;
+        do {
+            right = true;
+            System.out.print("Choose city standard of living\n1. ULTRA HIGH\n" +
+                "2. HIGH\n" +
+                "3. VERY LOW\n" +
+                "4. ULTRA LOW\n" +
+                "5. NIGHTMARE\n" +
+                "0. null\n");
+            standardOfLivingNumber = inputInteger("Enter a number:");
+        if (!(standardOfLivingNumber>=0 && standardOfLivingNumber<=5)){
+            right = false;
+            System.out.println("Input value is not correct!");
+        }
+    } while (right);
+        return StandardOfLiving.fromInt(standardOfLivingNumber);
     }
 }
 
