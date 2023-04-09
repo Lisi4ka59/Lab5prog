@@ -1,6 +1,5 @@
 package common;
 
-import models.Climate;
 
 import java.util.Date;
 import java.util.Scanner;

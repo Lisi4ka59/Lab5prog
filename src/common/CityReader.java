@@ -1,9 +1,6 @@
 package common;
 
-import models.Climate;
-import models.Coordinates;
-import models.Government;
-import models.StandardOfLiving;
+import models.*;
 
 import static common.Checker.*;
 
