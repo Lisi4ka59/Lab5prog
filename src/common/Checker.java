@@ -105,17 +105,17 @@ public class Checker {
     public static String inputStringNotNull(String prompt){
         Scanner scanner = new Scanner(System.in);
         String message = "The entered string is null, enter correct string\nRepeat input: ";
-        Boolean right;
         String string;
+        System.out.print(prompt);
         do {
-            string = scanner.nextLine();
-            string = trim(string);
-            right = !string.isEmpty();
-            if (!right) {
-                System.out.println(message);
+            string = trim(scanner.nextLine());
+            if (string.isEmpty()) {
+                System.out.print(message);
                 }
-        } while (!right);
-        return string;
+            else{
+                return string;
+            }
+        } while (true);
     }
     public static int inputEnumNumber(String prompt, int maxValue, Boolean isNull){
         Scanner scanner = new Scanner(System.in);
