@@ -10,7 +10,7 @@ public class PrintDescendingCommand implements Command{
     public void execute() {
 
         for (City city: cities.stream().sorted().toList()) {
-            System.out.println( city.toString());
+            System.out.println(city.toString());
         }
     }
 }

@@ -21,6 +21,7 @@ public class Invoker {
         commands.put("update_id", new UpdateIdCommand());
         commands.put("print_descending", new PrintDescendingCommand());
         commands.put("print_unique_standard_of_living", new PrintUniqueStandardOfLivingCommand());
+        commands.put("print_field_ascending_standard_of_living", new PrintFieldAscendingStandardOfLivingCommand());
     }
 
     public void run(String commandText)

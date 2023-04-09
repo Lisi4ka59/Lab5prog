@@ -56,9 +56,14 @@ public class City implements Jsonable, Comparable<City> {
         this.coordinates = new Coordinates(jo.getDouble(xKey),jo.getFloat(yKey));
         this.population = population;
         this.area = area;
-
-        this.standardOfLiving =StandardOfLiving.valueOf(jsonObject.getString(standardOfLivingKey));
-        this.government =Government.valueOf(jsonObject.getString(governmentKey));
+        if (jsonObject.getString(standardOfLivingKey)==null)
+            this.standardOfLiving = null;
+        else
+            this.standardOfLiving =StandardOfLiving.valueOf(jsonObject.getString(standardOfLivingKey));
+        if (jsonObject.getString(governmentKey)==null)
+            this.government = null;
+        else
+            this.government =Government.valueOf(jsonObject.getString(governmentKey));
         this.climate =Climate.valueOf(jsonObject.getString(climateKey));
 
     }
@@ -201,7 +206,7 @@ public class City implements Jsonable, Comparable<City> {
     @Override
     public String toString(){
 
-        return String.format("Name: %s\nID: %d\nCoordinates: %sStandard of living: %s\nGovernment: %s\nClimate: %s\n", name, getId(), getCoordinates(), getStandardOfLiving(), getGovernment(), getClimate());
+        return String.format("Name: %s\nID: %d\nCoordinates: %sStandard of living: %s\nGovernment: %s\nClimate: %s", name, getId(), getCoordinates(), getStandardOfLiving(), getGovernment(), getClimate());
     }
 
     @Override
@@ -217,6 +222,7 @@ public class City implements Jsonable, Comparable<City> {
     @Override
     public void toJson(Writer writer) throws IOException {
         final JsonObject json = new JsonObject();
+        json.put("creationDate", this.getCreationDate().toString());
         json.put("name", this.getName());
         json.put("id", this.getId());
         json.put("coordinates", this.getCoordinates());
@@ -224,10 +230,18 @@ public class City implements Jsonable, Comparable<City> {
         json.put("area", this.getArea());
         json.put("meters_above_sea_level", this.getMetersAboveSeaLevel());
         json.put("climate", this.getClimate().name());
-        json.put("government", this.getGovernment().name());
-        json.put("standard_of_living", this.getStandardOfLiving().name());
-        //json.put("governor", this.getGovernor());
-        json.put("creationDate", this.getCreationDate().toString());
+        if (this.getGovernment()==null)
+            json.put("government", null);
+        else
+            json.put("government", this.getGovernment().name());
+        if (this.getStandardOfLiving()==null)
+            json.put("standard_of_living", null);
+        else
+            json.put("standard_of_living", this.getStandardOfLiving().name());
+        /*if (this.getGovernor()==null)
+            json.put("governor", null);
+        else
+            json.put("governor", this.getGovernor());*/
         json.toJson(writer);
     }
 

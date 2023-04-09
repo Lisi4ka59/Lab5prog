@@ -10,91 +10,67 @@ import static org.apache.commons.lang.StringUtils.trim;
 public class Checker {
     public static int inputInteger(String prompt) {
         Scanner scanner = new Scanner(System.in);
-        boolean hasInt;
-        int value = 0;
+        String testString;
+        int value;
+        System.out.print(prompt);
         String message = "The entered value is not integer, enter correct value\nRepeat input: ";
         do {
-            System.out.print(prompt);
-            hasInt = scanner.hasNextInt();
-            if (!hasInt) {
-                System.out.println(message);
-                scanner.nextLine();
-            } else {
-                try {
-                    value = Integer.parseInt(scanner.nextLine());
-                } catch (IllegalArgumentException e) {
-                    hasInt = false;
-                    System.out.println(message);
-                }
+            testString = scanner.nextLine();
+            try {
+                value = Integer.parseInt(testString);
+                return value;
+            } catch (IllegalArgumentException e) {
+                System.out.print(message);
             }
-        } while (!hasInt);
-        return value;
+        } while (true);
     }
     public static long inputLong(String prompt) {
         Scanner scanner = new Scanner(System.in);
-        boolean hasLong;
-        long value = 0;
+        String testString;
+        long value;
+        System.out.print(prompt);
         String message = "The entered value is not long, enter correct value\nRepeat input: ";
         do {
-            System.out.print(prompt);
-            hasLong = scanner.hasNextLong();
-            if (!hasLong) {
-                System.out.println(message);
-                scanner.nextLine();
-            } else {
-                try {
-                    value = Long.parseLong(scanner.nextLine());
-                } catch (IllegalArgumentException e) {
-                    hasLong = false;
-                    System.out.println(message);
-                }
+            testString = scanner.nextLine();
+            try {
+                value = Long.parseLong(testString);
+                return value;
+            } catch (IllegalArgumentException e) {
+                System.out.print(message);
             }
-        } while (!hasLong);
-        return value;
+        } while (true);
     }
     public static float inputFloat(String prompt) {
         Scanner scanner = new Scanner(System.in);
-        boolean hasFloat;
-        float value = 0;
+        String testString;
+        float value;
+        System.out.print(prompt);
         String message = "The entered value is not float, enter correct value\nRepeat input: ";
         do {
-            System.out.print(prompt);
-            hasFloat = scanner.hasNextFloat();
-            if (!hasFloat) {
-                System.out.println(message);
-                scanner.nextLine();
-            } else {
-                try {
-                    value = Float.parseFloat(scanner.nextLine());
-                } catch (IllegalArgumentException e) {
-                    hasFloat = false;
-                    System.out.println(message);
-                }
+            testString = scanner.nextLine();
+            try {
+                value = Float.parseFloat(testString);
+                return value;
+            } catch (IllegalArgumentException e) {
+                System.out.print(message);
             }
-        } while (!hasFloat);
-        return value;
+        } while (true);
     }
     public static double inputDouble(String prompt) {
         Scanner scanner = new Scanner(System.in);
-        boolean hasDouble;
-        double value = 0;
+        String testString;
+        double value;
+        System.out.print(prompt);
         String message = "The entered value is not double, enter correct value\nRepeat input: ";
         do {
-            System.out.print(prompt);
-            hasDouble = scanner.hasNextFloat();
-            if (!hasDouble) {
-                System.out.println(message);
-                scanner.nextLine();
-            } else {
-                try {
-                    value = Double.parseDouble(scanner.nextLine());
-                } catch (IllegalArgumentException e) {
-                    hasDouble = false;
-                    System.out.println(message);
-                }
+            testString = scanner.nextLine();
+            try {
+                value = Double.parseDouble(testString);
+                return value;
+            } catch (IllegalArgumentException e) {
+                System.out.print(message);
             }
-        } while (!hasDouble);
-        return value;
+        } while (true);
     }
     public static Date inputDate(String prompt) {
         Scanner scanner = new Scanner(System.in);
@@ -141,5 +117,31 @@ public class Checker {
         } while (!right);
         return string;
     }
-
+    public static int inputEnumNumber(String prompt, int maxValue, Boolean isNull){
+        Scanner scanner = new Scanner(System.in);
+        String testString;
+        int value;
+        System.out.print(prompt);
+        String message = "The entered value is not correct, enter correct value\nRepeat input: ";
+        do {
+            testString = scanner.nextLine();
+            if (testString == "" && isNull){
+                return 0;
+            }
+            else {
+                try {
+                    value = Integer.parseInt(testString);
+                } catch (IllegalArgumentException e) {
+                    System.out.print(message);
+                    continue;
+                }
+                if (1 > value || value > maxValue) {
+                    System.out.print(message);
+                }
+                else{
+                    return value;
+                }
+            }
+        } while (true);
+    }
 }

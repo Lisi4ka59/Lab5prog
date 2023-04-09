@@ -13,7 +13,8 @@ public class ShowCommand implements Command{
         }
         else {
             for (City city : cities) {
-                System.out.println(city.toString());
+
+                System.out.println("\n" + city.toString());
             }
         }
     }
