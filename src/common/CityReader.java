@@ -2,6 +2,8 @@ package common;
 
 import models.*;
 
+import java.util.Date;
+
 import static common.Checker.*;
 
 public class CityReader {
@@ -11,25 +13,53 @@ public class CityReader {
     }
 
     public static Coordinates inputCoordinates() {
-        double x = inputDouble("City coordinates\nEnter coordinate X (X must be more than -25): ");
+        double x;
+        System.out.println("City coordinates");
+        do {
+            x = inputDouble("Enter coordinate X (X must be more than -25): ");
+            if (x > -25){
+                break;
+            }
+            System.out.println("X must be double and more than -25!");
+        }while (true);
         float y = inputFloat("Enter coordinate Y: ");
         Coordinates coordinates = new Coordinates(x, y);
         return coordinates;
     }
 
     public static long inputPopulation() {
-        long population = inputLong("Enter city population (population must be more than 0): ");
-        return population;
+        do {
+            long population = inputLong("Enter city population (population must be more than 0): ");
+            if (population > 0){
+                return population;
+            }
+            System.out.println("Population must be long and more than 0!");
+        }while (true);
     }
 
     public static double inputArea() {
-        double area = inputDouble("Enter city area (area must be more than 0): ");
-        return area;
+        do {
+            double area = inputDouble("Enter city area (area must be more than 0): ");
+            if (area > 0){
+                return area;
+            }
+            System.out.println("Area must be double and more than 0!");
+        }while (true);
     }
 
     public static int inputMetersAboveSeaLevel() {
-        int metersAboveSeaLevel = inputInteger("Enter the height of the city above sea level: ");
-        return metersAboveSeaLevel;
+        do {
+            int metersAboveSeaLevel = inputInteger("Enter the height of the city above sea level: ");
+            if (metersAboveSeaLevel > 8849){
+                System.out.println("City cannot be higher than the highest point on Earth!");
+            }
+            else if (metersAboveSeaLevel < -432){
+                System.out.println("City cannot be below the lowest point on land!");
+            }
+            else {
+                return metersAboveSeaLevel;
+            }
+        }while (true);
     }
 
     public static Climate inputClimate(){
@@ -57,26 +87,18 @@ public class CityReader {
         int standardOfLivingNumber = inputEnumNumber(prompt, 5, true);
         return StandardOfLiving.fromInt(standardOfLivingNumber);
     }
-}
-
-
-/*
-        System.out.print("City governor\nEnter governor age: ");
-        long age = Long.valueOf(scanner.nextLine());
-        System.out.print("Governor birthday\nEnter year: ");
-        int year = Integer.valueOf(scanner.nextLine());
-        System.out.print("Enter month: ");
-        int month = Integer.valueOf(scanner.nextLine());
-        System.out.print("Enter day: ");
-        int day = Integer.valueOf(scanner.nextLine());
-        Date birthday = new Date(year, month, day);
-        Human governor = new Human(age, birthday);
-
-
-        System.out.println("Congratulations! City added to collection");
-        City city = new City(name, coordinates, population, area, metersAboveSeaLevel, climate, government, standardOfLiving, governor);
-        Main.cities.add(city);
+    public static Human inputGovernor(){
+        long age;
+        System.out.println("City governor");
+        do {
+            age = inputLong("Enter governor age: ");
+            if (age > 0 ){
+                break;
+            }
+            System.out.println("Governor age must be long and more than 0!");
+        }while (true);
+        Date governorBirthday = inputDate("Governor birthday\nEnter date (dd.MM.yyyy): ");
+        Human governor = new Human(age, governorBirthday);
+        return governor;
     }
 }
-*/
-

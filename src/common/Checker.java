@@ -3,6 +3,7 @@ package common;
 
 import java.util.Date;
 import java.util.Scanner;
+
 import static org.apache.commons.lang.StringUtils.isNumeric;
 import static org.apache.commons.lang.StringUtils.trim;
 
@@ -14,7 +15,7 @@ public class Checker {
         System.out.print(prompt);
         String message = "The entered value is not integer, enter correct value\nRepeat input: ";
         do {
-            testString = scanner.nextLine();
+            testString = trim(scanner.nextLine());
             try {
                 value = Integer.parseInt(testString);
                 return value;
@@ -30,7 +31,7 @@ public class Checker {
         System.out.print(prompt);
         String message = "The entered value is not long, enter correct value\nRepeat input: ";
         do {
-            testString = scanner.nextLine();
+            testString = trim(scanner.nextLine());
             try {
                 value = Long.parseLong(testString);
                 return value;
@@ -46,7 +47,7 @@ public class Checker {
         System.out.print(prompt);
         String message = "The entered value is not float, enter correct value\nRepeat input: ";
         do {
-            testString = scanner.nextLine();
+            testString = trim(scanner.nextLine());
             try {
                 value = Float.parseFloat(testString);
                 return value;
@@ -62,7 +63,7 @@ public class Checker {
         System.out.print(prompt);
         String message = "The entered value is not double, enter correct value\nRepeat input: ";
         do {
-            testString = scanner.nextLine();
+            testString = trim(scanner.nextLine());
             try {
                 value = Double.parseDouble(testString);
                 return value;
@@ -76,30 +77,24 @@ public class Checker {
         String message = "The entered value is not date, enter correct value\nRepeat input: ";
         String date;
         String dateTest;
-        Date rightDate = null;
         System.out.print(prompt);
-        Boolean right;
         do {
-            date = scanner.nextLine();
-            date = trim(date);
+            date = trim(scanner.nextLine());
             dateTest = date.replace(".", "");
-            right = isNumeric(dateTest);
             String[] dateArray = date.split("\\.");
-            if (dateArray.length == 3 && right) {
+            if (dateArray.length == 3 && isNumeric(dateTest) && Integer.parseInt(dateArray[2]) > 0 && Integer.parseInt(dateArray[1]) > 0 && Integer.parseInt(dateArray[1]) < 13 && Integer.parseInt(dateArray[0]) < 32 && Integer.parseInt(dateArray[0]) > 0) {
                 try {
                     int day = Integer.parseInt(dateArray[0]);
-                    int month = Integer.parseInt(dateArray[1]);
+                    int month = Integer.parseInt(dateArray[1]) - 1;
                     int year = Integer.parseInt(dateArray[2]) - 1900;
-                    rightDate = new Date(year, month, day);
+                    return new Date(year, month, day);
                 } catch (NumberFormatException e) {
-                    System.out.println(message);
-                    right = false;
+                    System.out.print(message);
                 }
             } else {
-                System.out.println(message);
+                System.out.print(message);
             }
-        } while (!right);
-        return rightDate;
+        } while (true);
     }
     public static String inputStringNotNull(String prompt){
         Scanner scanner = new Scanner(System.in);
@@ -123,7 +118,7 @@ public class Checker {
         System.out.print(prompt);
         String message = "The entered value is not correct, enter correct value\nRepeat input: ";
         do {
-            testString = scanner.nextLine();
+            testString = trim(scanner.nextLine());
             if (testString == "" && isNull){
                 return 0;
             }
