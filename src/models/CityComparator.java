@@ -2,7 +2,16 @@ package models;
 
 import java.util.Comparator;
 
+/**
+ * 
+ */
 public class CityComparator implements Comparator<City> {
+    /**
+     *
+     * @param o1 the first object to be compared.
+     * @param o2 the second object to be compared.
+     * @return
+     */
     @Override
     public int compare(City o1, City o2) {
         if (o1==null && o2 == null)

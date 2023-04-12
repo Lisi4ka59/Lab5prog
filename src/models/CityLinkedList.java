@@ -16,12 +16,13 @@ public class CityLinkedList extends LinkedList<City> implements Jsonable {
         super();
         creationDate = LocalDateTime.now();
     }
-    public void addIfMin (City city){
+    public boolean addIfMin (City city){
         City minCity = stream().min(new CityComparator()).get();
-
-        if (new CityComparator().compare(minCity, city)<0)
+        if (new CityComparator().compare(minCity, city)<0){
             add(city);
-
+            return true;
+        }
+        else return false;
     }
     public LocalDateTime getCreationDate() {
         return creationDate;

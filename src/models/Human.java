@@ -6,6 +6,7 @@ import com.github.cliftonlabs.json_simple.Jsonable;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.io.Writer;
+import java.text.SimpleDateFormat;
 
 public class Human implements Jsonable {
     public Human (long age, java.util.Date birthday){
@@ -34,7 +35,7 @@ public class Human implements Jsonable {
     public void toJson(Writer writer) throws IOException {
         final JsonObject json = new JsonObject();
         json.put("age", this.getAge());
-        json.put("birthday", this.getBirthday());
+        json.put("birthday", new SimpleDateFormat("dd.MM.yyyy").format(getBirthday()));
         json.toJson(writer);
     }
 }
