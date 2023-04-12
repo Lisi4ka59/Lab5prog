@@ -6,6 +6,8 @@ import com.github.cliftonlabs.json_simple.Jsonable;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.io.Writer;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.LinkedList;
 import java.util.Optional;
@@ -24,8 +26,9 @@ public class CityLinkedList extends LinkedList<City> implements Jsonable {
         }
         else return false;
     }
-    public LocalDateTime getCreationDate() {
-        return creationDate;
+    public String getCreationDate() {
+        String date = new SimpleDateFormat("dd/MM/yyyy").format(creationDate);
+        return date;
     }
     @Override
     public String toJson() {
@@ -40,7 +43,7 @@ public class CityLinkedList extends LinkedList<City> implements Jsonable {
     @Override
     public void toJson(Writer writer) throws IOException {
         final JsonObject json = new JsonObject();
-        json.put("creationDate", this.getCreationDate().toString());
+        json.put("creationDate", this.getCreationDate());
         json.put("cities", this.toArray());
         json.toJson(writer);
     }

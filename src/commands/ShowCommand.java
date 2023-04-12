@@ -1,9 +1,9 @@
 package commands;
 
-import common.Main;
+import common.AppClient;
 import models.City;
 
-import static common.Main.cities;
+import static common.AppClient.cities;
 
 public class ShowCommand implements Command{
     @Override
@@ -13,7 +13,6 @@ public class ShowCommand implements Command{
         }
         else {
             for (City city : cities) {
-
                 System.out.println("\n" + city.toString());
             }
         }

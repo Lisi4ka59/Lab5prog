@@ -4,7 +4,7 @@ import models.City;
 
 import java.util.Scanner;
 
-import static common.Main.cities;
+import static common.AppClient.cities;
 
 public class RemoveByIdCommand implements Command{
     @Override

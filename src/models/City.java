@@ -13,7 +13,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.Date;
-import java.util.Locale;
 
 public class City implements Jsonable, Comparable<City> {
     private java.time.LocalDateTime creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
@@ -55,14 +54,22 @@ public class City implements Jsonable, Comparable<City> {
         final JsonKey climateKey = Jsoner.mintJsonKey("climate", "");
         final JsonKey ageKey = Jsoner.mintJsonKey("age", "");
         final JsonKey birthdayKey = Jsoner.mintJsonKey("birthday", "");
-        Date date = new Date();
-        id = date.getTime();
-        creationDate = LocalDateTime.now();
-        this.name = jsonObject.getString(nameKey);
+        final JsonKey idKey = Jsoner.mintJsonKey("id", "");
+        final JsonKey creationDateKey = Jsoner.mintJsonKey("creationDate", "");
+        setId(jsonObject.getLong(idKey));
+        /*String creationDateString = jsonObject.getString(creationDateKey);
+        DateFormat dfc = new SimpleDateFormat("dd.MM.yyyy");
+        Date creationDate;
+        try {
+            creationDate = dfc.parse(creationDateString);
+        } catch (ParseException e) {
+            creationDate = null;
+        }*/
+        setName(jsonObject.getString(nameKey));
         JsonObject joCoordinates  = (JsonObject)jsonObject.get ("coordinates");
         this.coordinates = new Coordinates(joCoordinates.getDouble(xKey),joCoordinates.getFloat(yKey));
-        this.population = jsonObject.getLong(populationKey);
-        this.area = jsonObject.getDouble(areaKey);
+        setPopulation(jsonObject.getLong(populationKey));
+        setArea(jsonObject.getDouble(areaKey));
         if (jsonObject.getString(standardOfLivingKey)==null)
             this.standardOfLiving = null;
         else
@@ -229,7 +236,7 @@ public class City implements Jsonable, Comparable<City> {
     @Override
     public String toString(){
 
-        return String.format("Name: %s\nID: %d\nCoordinates: %sStandard of living: %s\nGovernment: %s\nClimate: %s\nArea: %s", name, getId(), getCoordinates(), getStandardOfLiving(), getGovernment(), getClimate(), getStringArea());
+        return String.format("Name: %s\nID: %d\nCoordinates: %sStandard of living: %s\nGovernment: %s\nClimate: %s\nStandard of living: %s\nGovernment: %s\nArea: %sPopulation: %d\n", name, getId(), getCoordinates(), getStandardOfLiving(), getGovernment(), getClimate(), getStandardOfLiving(), getGovernment(), getStringArea(), getPopulation());
     }
 
     @Override
@@ -245,7 +252,6 @@ public class City implements Jsonable, Comparable<City> {
     @Override
     public void toJson(Writer writer) throws IOException {
         final JsonObject json = new JsonObject();
-        json.put("creationDate", this.getCreationDate().toString());
         json.put("name", this.getName());
         json.put("id", this.getId());
         json.put("coordinates", this.getCoordinates());

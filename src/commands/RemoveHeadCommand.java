@@ -1,15 +1,16 @@
 package commands;
 
+import common.AppClient;
 import common.Main;
 import models.City;
 
 public class RemoveHeadCommand implements Command{
     @Override
     public void execute() {
-        if (!Main.cities.isEmpty()){
-            City city = Main.cities.getFirst();
+        if (!AppClient.cities.isEmpty()){
+            City city = AppClient.cities.getFirst();
             System.out.println(city.toString());
-            Main.cities.removeFirst();
+            AppClient.cities.removeFirst();
             System.out.println("First element of collection removed");
         }
         else {

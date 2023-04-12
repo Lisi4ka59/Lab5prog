@@ -5,7 +5,7 @@ import models.StandardOfLiving;
 
 import java.util.ArrayList;
 
-import static common.Main.cities;
+import static common.AppClient.cities;
 
 public class PrintUniqueStandardOfLivingCommand implements Command{
     @Override

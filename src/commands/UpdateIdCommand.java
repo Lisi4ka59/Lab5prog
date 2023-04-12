@@ -4,7 +4,9 @@ import models.City;
 
 import java.util.Scanner;
 
-import static common.Main.cities;
+import static commands.AddCommand.getCity;
+import static common.CityReader.*;
+import static common.AppClient.cities;
 
 public class UpdateIdCommand implements Command{
     @Override
@@ -16,9 +18,15 @@ public class UpdateIdCommand implements Command{
         boolean update = false;
         for (City city:cities) {
             if (city.getId()==id){
-                System.out.print("City name: ");
-                String name = scanner.nextLine();
-                city.setName(name);
+                city.setName(inputName());
+                city.setCoordinates(inputCoordinates());
+                city.setArea(inputArea());
+                city.setPopulation(inputPopulation());
+                city.setMetersAboveSeaLevel(inputMetersAboveSeaLevel());
+                city.setClimate(inputClimate());
+                city.setGovernment(inputGovernment());
+                city.setStandardOfLiving(inputStandardOfLiving());
+                city.setGovernor(inputGovernor());
                 update = true;
                 break;
             }

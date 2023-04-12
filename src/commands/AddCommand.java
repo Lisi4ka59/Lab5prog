@@ -1,7 +1,7 @@
 package commands;
 
 
-import common.Main;
+import common.AppClient;
 import models.*;
 
 
@@ -17,7 +17,7 @@ public class AddCommand implements Command {
     @Override
     public void execute() {
         City city = getCity();
-        Main.cities.add(city);
+        AppClient.cities.add(city);
         System.out.println("Congratulations! City added to collection");
     }
     /**

@@ -2,7 +2,7 @@ package commands;
 
 import models.City;
 
-import static common.Main.cities;
+import static common.AppClient.cities;
 
 public class AddIfMinCommand implements Command{
     @Override

@@ -10,7 +10,7 @@ import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-import static common.Main.cities;
+import static common.AppClient.cities;
 
 public class LoadCommand implements Command{
     @Override

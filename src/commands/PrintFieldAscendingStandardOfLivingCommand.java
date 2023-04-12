@@ -3,7 +3,7 @@ package commands;
 import models.City;
 import models.StandardOfLivingComparator;
 
-import static common.Main.cities;
+import static common.AppClient.cities;
 
 public class PrintFieldAscendingStandardOfLivingCommand implements Command{
     @Override

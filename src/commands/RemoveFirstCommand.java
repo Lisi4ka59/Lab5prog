@@ -1,12 +1,13 @@
 package commands;
 
+import common.AppClient;
 import common.Main;
 
 public class RemoveFirstCommand implements Command{
     @Override
     public void execute() {
-        if (!Main.cities.isEmpty()) {
-            Main.cities.removeFirst();
+        if (!AppClient.cities.isEmpty()) {
+            AppClient.cities.removeFirst();
             System.out.println("First element of collection removed");
         }
         else {
