@@ -1,6 +1,6 @@
 package common;
 
-import models.CityLinkedList;
+import utils.CityLinkedList;
 
 import java.util.NoSuchElementException;
 import java.util.Scanner;

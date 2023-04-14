@@ -1,7 +1,6 @@
 package commands;
 
 import models.City;
-import models.CityLinkedList;
 
 import static common.AppClient.cities;
 

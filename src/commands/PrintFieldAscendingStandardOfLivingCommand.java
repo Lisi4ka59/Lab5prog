@@ -1,7 +1,7 @@
 package commands;
 
 import models.City;
-import models.StandardOfLivingComparator;
+import utils.StandardOfLivingComparator;
 
 import static common.AppClient.cities;
 

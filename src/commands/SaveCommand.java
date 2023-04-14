@@ -5,10 +5,8 @@ import models.*;
 
 
 import java.io.BufferedWriter;
-import java.io.StringWriter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Date;
 
 import static common.AppClient.cities;
 

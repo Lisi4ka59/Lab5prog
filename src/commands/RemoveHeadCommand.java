@@ -1,7 +1,6 @@
 package commands;
 
 import common.AppClient;
-import common.Main;
 import models.City;
 
 public class RemoveHeadCommand implements Command{

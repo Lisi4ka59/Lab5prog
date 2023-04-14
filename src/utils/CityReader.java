@@ -1,10 +1,10 @@
-package common;
+package utils;
 
 import models.*;
 
 import java.util.Date;
 
-import static common.Checker.*;
+import static utils.Checker.*;
 
 public class CityReader {
     public static String inputName() {

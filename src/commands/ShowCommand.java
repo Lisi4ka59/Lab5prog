@@ -1,6 +1,5 @@
 package commands;
 
-import common.AppClient;
 import models.City;
 
 import static common.AppClient.cities;

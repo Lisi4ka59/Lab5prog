@@ -1,9 +1,8 @@
 package commands;
 
 import com.github.cliftonlabs.json_simple.*;
-import common.Main;
 import models.City;
-import models.CityLinkedList;
+import utils.CityLinkedList;
 
 import java.io.IOException;
 import java.io.Reader;

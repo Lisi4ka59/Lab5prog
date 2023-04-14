@@ -1,7 +1,6 @@
 package commands;
 
 import common.AppClient;
-import common.Main;
 
 public class RemoveFirstCommand implements Command{
     @Override

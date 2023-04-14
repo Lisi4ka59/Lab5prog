@@ -12,10 +12,11 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public class City implements Jsonable, Comparable<City> {
-    private java.time.LocalDateTime creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
+    private LocalDateTime creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
     private Long id; //Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
     private String name; //Поле не может быть null, Строка не может быть пустой
     private Coordinates coordinates; //Поле не может быть null
@@ -38,8 +39,8 @@ public class City implements Jsonable, Comparable<City> {
         this.climate = climate;
         this.standardOfLiving = standardOfLiving;
         this.government = government;
-        this. governor = governor;
-        this. metersAboveSeaLevel = metersAboveSeaLevel;
+        this.governor = governor;
+        this.metersAboveSeaLevel = metersAboveSeaLevel;
     }
 
     public City (JsonObject jsonObject){
@@ -58,13 +59,12 @@ public class City implements Jsonable, Comparable<City> {
         final JsonKey creationDateKey = Jsoner.mintJsonKey("creationDate", "");
         setId(jsonObject.getLong(idKey));
         /*String creationDateString = jsonObject.getString(creationDateKey);
-        DateFormat dfc = new SimpleDateFormat("dd.MM.yyyy");
+        DateFormat dfc = new SimpleDateFormat("dd.MM.yyyy HH.mm.ss");
         Date creationDate;
         try {
             creationDate = dfc.parse(creationDateString);
         } catch (ParseException e) {
-            creationDate = null;
-        }*/
+            creationDate = null;*/
         setName(jsonObject.getString(nameKey));
         JsonObject joCoordinates  = (JsonObject)jsonObject.get ("coordinates");
         this.coordinates = new Coordinates(joCoordinates.getDouble(xKey),joCoordinates.getFloat(yKey));
@@ -88,14 +88,14 @@ public class City implements Jsonable, Comparable<City> {
             Date birthday;
             try {
                 birthday = df.parse(birthdayString);
-            } catch (ParseException e) {
+            } catch (ParseException i) {
                 birthday = null;
             }
             this.governor = new Human(joGovernor.getLong(ageKey), birthday);
         }
     }
 
-    public void setCreationDate (java.time.LocalDateTime creationDate){
+    public void setCreationDate(LocalDateTime creationDate){
         if (creationDate == null) {
             throw new NullPointerException("Field creationDate can not be null");
 
@@ -103,8 +103,9 @@ public class City implements Jsonable, Comparable<City> {
         this.creationDate=creationDate;
     }
 
-    public java.time.LocalDateTime getCreationDate (){
-        return creationDate;
+    public String getCreationDate (){
+        String date = creationDate.format(DateTimeFormatter.ofPattern("dd.MM.yyyy HH.mm.ss"));
+        return date;
     }
 
     public void setId (Long id){
@@ -254,6 +255,7 @@ public class City implements Jsonable, Comparable<City> {
         final JsonObject json = new JsonObject();
         json.put("name", this.getName());
         json.put("id", this.getId());
+        json.put("creation_date", this.getCreationDate());
         json.put("coordinates", this.getCoordinates());
         json.put("population", this.getPopulation());
         json.put("area", this.getArea());

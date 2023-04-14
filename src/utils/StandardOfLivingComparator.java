@@ -1,4 +1,6 @@
-package models;
+package utils;
+
+import models.City;
 
 import java.util.Comparator;
 

@@ -4,26 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1cf6ba1b-2ea0-4889-b878-1e9abe46aaf0" name="Changes" comment="add methods to input enum classes">
-      <change afterPath="$PROJECT_DIR$/src/common/AppClient.java" afterDir="false" />
+    <list default="true" id="1cf6ba1b-2ea0-4889-b878-1e9abe46aaf0" name="Changes" comment="add AppClient">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/commands/AddCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/AddCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commands/AddIfMinCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/AddIfMinCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/commands/ClearCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/ClearCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commands/ExecuteScriptCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/ExecuteScriptCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/commands/InfoCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/InfoCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/commands/LoadCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/LoadCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/commands/PrintDescendingCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/PrintDescendingCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/commands/PrintFieldAscendingStandardOfLivingCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/PrintFieldAscendingStandardOfLivingCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commands/PrintUniqueStandardOfLivingCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/PrintUniqueStandardOfLivingCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commands/RemoveByIdCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/RemoveByIdCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/commands/RemoveFirstCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/RemoveFirstCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/commands/RemoveHeadCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/RemoveHeadCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/commands/SaveCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/SaveCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/commands/ShowCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/ShowCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/commands/UpdateIdCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/UpdateIdCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/AppClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/AppClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/Checker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Checker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/CityReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/CityReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/City.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/City.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/CityLinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/CityLinkedList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/CityComparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/CityComparator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/CityLinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/CityLinkedList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/StandardOfLivingComparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/StandardOfLivingComparator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +113,8 @@
       <workItem from="1681115433826" duration="28000" />
       <workItem from="1681116377096" duration="4021000" />
       <workItem from="1681295029067" duration="1137000" />
-      <workItem from="1681298970343" duration="4910000" />
+      <workItem from="1681298970343" duration="6135000" />
+      <workItem from="1681305607105" duration="1759000" />
     </task>
     <task id="LOCAL-00001" summary="add commands: AddCommand, InfoCommand, ShowCommand&#10;add collection">
       <created>1679512994195</created>
@@ -177,7 +179,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681034791622</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="add AppClient">
+      <created>1681303970541</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1681303970541</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -201,14 +210,15 @@
     <MESSAGE value="improve SaveCommand&#10;make LoadCommand" />
     <MESSAGE value="improve AddCommand" />
     <MESSAGE value="add methods to input enum classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="add methods to input enum classes" />
+    <MESSAGE value="add AppClient" />
+    <option name="LAST_COMMIT_MESSAGE" value="add AppClient" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/commands/LoadCommand.java</url>
-          <line>21</line>
+          <line>20</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>

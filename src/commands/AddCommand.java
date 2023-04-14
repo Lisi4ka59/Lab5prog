@@ -6,7 +6,7 @@ import models.*;
 
 
 
-import static common.CityReader.*;
+import static utils.CityReader.*;
 
 /**
  * add command, use to make a city

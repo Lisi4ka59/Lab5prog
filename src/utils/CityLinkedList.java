@@ -1,22 +1,21 @@
-package models;
+package utils;
 
 import com.github.cliftonlabs.json_simple.JsonObject;
 import com.github.cliftonlabs.json_simple.Jsonable;
+import models.City;
 
 import java.io.IOException;
 import java.io.StringWriter;
 import java.io.Writer;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.LinkedList;
-import java.util.Optional;
 
 public class CityLinkedList extends LinkedList<City> implements Jsonable {
-    private LocalDateTime creationDate;
+    private LocalDateTime creationCollectionDate;
     public CityLinkedList () {
         super();
-        creationDate = LocalDateTime.now();
+        creationCollectionDate = LocalDateTime.now();
     }
     public boolean addIfMin (City city){
         City minCity = stream().min(new CityComparator()).get();
@@ -26,8 +25,8 @@ public class CityLinkedList extends LinkedList<City> implements Jsonable {
         }
         else return false;
     }
-    public String getCreationDate() {
-        String date = new SimpleDateFormat("dd/MM/yyyy").format(creationDate);
+    public String getCreationCollectionDate() {
+        String date = creationCollectionDate.format(DateTimeFormatter.ofPattern("dd.MM.yyyy HH.mm.ss"));
         return date;
     }
     @Override
@@ -43,7 +42,7 @@ public class CityLinkedList extends LinkedList<City> implements Jsonable {
     @Override
     public void toJson(Writer writer) throws IOException {
         final JsonObject json = new JsonObject();
-        json.put("creationDate", this.getCreationDate());
+        json.put("creationCollectionDate", this.getCreationCollectionDate());
         json.put("cities", this.toArray());
         json.toJson(writer);
     }

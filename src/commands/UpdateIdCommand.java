@@ -4,8 +4,7 @@ import models.City;
 
 import java.util.Scanner;
 
-import static commands.AddCommand.getCity;
-import static common.CityReader.*;
+import static utils.CityReader.*;
 import static common.AppClient.cities;
 
 public class UpdateIdCommand implements Command{
