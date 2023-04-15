@@ -26,8 +26,9 @@ public class SaveCommand implements Command{
             json = Jsoner.prettyPrint(json);
             writer.write(json);
             writer.close();
+            System.out.println("Collection saved successfully");
         } catch (Exception ex) {
-            ex.printStackTrace();
+            ex.getMessage();
         }
     }
 }
