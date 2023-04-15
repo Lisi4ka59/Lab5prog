@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1cf6ba1b-2ea0-4889-b878-1e9abe46aaf0" name="Changes" comment="add receiver">
-      <change beforePath="$PROJECT_DIR$/src/commands/SaveCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/SaveCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +100,7 @@
       <workItem from="1681492999969" duration="3262000" />
       <workItem from="1681517393738" duration="866000" />
       <workItem from="1681549942897" duration="1130000" />
-      <workItem from="1681557614346" duration="5604000" />
+      <workItem from="1681557614346" duration="6257000" />
     </task>
     <task id="LOCAL-00001" summary="add commands: AddCommand, InfoCommand, ShowCommand&#10;add collection">
       <created>1679512994195</created>
@@ -193,7 +193,21 @@
       <option name="project" value="LOCAL" />
       <updated>1681577954659</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="add receiver">
+      <created>1681578106168</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1681578106168</updated>
+    </task>
+    <task id="LOCAL-00015" summary="add receiver">
+      <created>1681578124679</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1681578124679</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

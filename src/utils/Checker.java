@@ -99,6 +99,7 @@ public class Checker {
     }
     public static LocalDateTime checkLocalDateTime(String localDate) {
             localDate = trim(localDate);
+            localDate = localDate.replace(":", ".");
             localDate = localDate.replace(" ", ".");
             String[] localDateArray = localDate.split("\\.");
                 try {
