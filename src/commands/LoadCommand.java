@@ -8,10 +8,16 @@ import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.List;
 
 import static common.AppClient.cities;
 
 public class LoadCommand implements Command{
+    private List collection;
+    public LoadCommand(List collection){
+
+        this.collection = collection;
+    }
     @Override
     public void execute() {
         // read JSON from a file
@@ -23,11 +29,11 @@ public class LoadCommand implements Command{
             Reader reader = Files.newBufferedReader(Paths.get(fileName));
             JsonObject jsonObject = (JsonObject) Jsoner.deserialize(reader);
             JsonArray jsonArray = (JsonArray)jsonObject.get("cities");
-            cities=new CityLinkedList();
+            //cities=new CityLinkedList();
             for (Object obj: jsonArray) {
                 JsonObject jo = (JsonObject) obj;
                 City city = new City(jo);
-                cities.add(city);
+                collection.add(city);
             }
             System.out.println("Collection uploaded");
         } catch (JsonException e) {

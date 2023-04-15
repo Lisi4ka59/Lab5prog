@@ -7,16 +7,22 @@ import models.*;
 import java.io.BufferedWriter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.List;
 
 import static common.AppClient.cities;
 
 
 public class SaveCommand implements Command{
+    private List<City> collection;
+    public SaveCommand(List<City> collection){
+
+        this.collection = collection;
+    }
     @Override
     public void execute() {
         try {
             BufferedWriter writer = Files.newBufferedWriter(Paths.get("cities.json"));
-            String json = Jsoner.serialize(cities);
+            String json = Jsoner.serialize(collection);
             json = Jsoner.prettyPrint(json);
             writer.write(json);
             writer.close();

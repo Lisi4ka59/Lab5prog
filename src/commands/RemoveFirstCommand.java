@@ -1,12 +1,20 @@
 package commands;
 
 import common.AppClient;
+import models.City;
+
+import java.util.List;
 
 public class RemoveFirstCommand implements Command{
+    private List<City> collection;
+    public RemoveFirstCommand(List<City> collection){
+
+        this.collection = collection;
+    }
     @Override
     public void execute() {
-        if (!AppClient.cities.isEmpty()) {
-            AppClient.cities.removeFirst();
+        if (!collection.isEmpty()) {
+            collection.remove(0);
             System.out.println("First element of collection removed");
         }
         else {

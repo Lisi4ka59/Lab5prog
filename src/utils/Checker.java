@@ -1,6 +1,7 @@
 package utils;
 
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -95,6 +96,22 @@ public class Checker {
                 System.out.print(message);
             }
         } while (true);
+    }
+    public static LocalDateTime checkLocalDateTime(String localDate) {
+            localDate = trim(localDate);
+            localDate = localDate.replace(" ", ".");
+            String[] localDateArray = localDate.split("\\.");
+                try {
+                    int day = Integer.parseInt(localDateArray[0]);
+                    int month = Integer.parseInt(localDateArray[1]);
+                    int year = Integer.parseInt(localDateArray[2]);
+                    int hour = Integer.parseInt(localDateArray[3]);
+                    int minute = Integer.parseInt(localDateArray[4]);
+                    int second = Integer.parseInt(localDateArray[5]);
+                    return LocalDateTime.of(year, month, day, hour, minute, second);
+                } catch (NumberFormatException e) {
+                    throw new IllegalArgumentException();
+                }
     }
     public static String inputStringNotNull(String prompt){
         Scanner scanner = new Scanner(System.in);

@@ -2,12 +2,18 @@ package commands;
 
 import models.City;
 
+import java.util.List;
 import java.util.Scanner;
 
 import static utils.CityReader.*;
 import static common.AppClient.cities;
 
 public class UpdateIdCommand implements Command{
+    private List<City> collection;
+    public UpdateIdCommand(List<City> collection){
+
+        this.collection = collection;
+    }
     @Override
     public void execute() {
         Scanner scanner = new Scanner(System.in);
@@ -15,7 +21,7 @@ public class UpdateIdCommand implements Command{
         Long id = scanner.nextLong();
         scanner.nextLine();
         boolean update = false;
-        for (City city:cities) {
+        for (City city:collection) {
             if (city.getId()==id){
                 city.setName(inputName());
                 city.setCoordinates(inputCoordinates());

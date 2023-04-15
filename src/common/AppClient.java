@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class AppClient {
     public static CityLinkedList cities = new CityLinkedList();
     private void start() {
-        Invoker invoker = new Invoker();
+        Invoker invoker = new Invoker(cities);
         Scanner scanner = new Scanner(System.in);
         invoker.run("load");
         while (true) {

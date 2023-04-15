@@ -11,22 +11,16 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.LinkedList;
 
+import static common.AppClient.cities;
+
 public class CityLinkedList extends LinkedList<City> implements Jsonable {
     private LocalDateTime creationCollectionDate;
     public CityLinkedList () {
         super();
         creationCollectionDate = LocalDateTime.now();
     }
-    public boolean addIfMin (City city){
-        City minCity = stream().min(new CityComparator()).get();
-        if (new CityComparator().compare(minCity, city)<0){
-            add(city);
-            return true;
-        }
-        else return false;
-    }
     public String getCreationCollectionDate() {
-        String date = creationCollectionDate.format(DateTimeFormatter.ofPattern("dd.MM.yyyy HH.mm.ss"));
+        String date = creationCollectionDate.format(DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm:ss"));
         return date;
     }
     @Override
@@ -35,14 +29,19 @@ public class CityLinkedList extends LinkedList<City> implements Jsonable {
         try {
             this.toJson(writable);
         } catch (final IOException e) {
+            System.out.printf("Warning: %s\n", e.getMessage());
         }
         return writable.toString();
+    }
+    @Override
+    public String toString(){
+        return String.format("Type: %s\nCreation date: %s\nCount of elements: %d\n", cities.getClass(), cities.getCreationCollectionDate().toString(), cities.size());
     }
 
     @Override
     public void toJson(Writer writer) throws IOException {
         final JsonObject json = new JsonObject();
-        json.put("creationCollectionDate", this.getCreationCollectionDate());
+        json.put("creation_collection_date", this.getCreationCollectionDate());
         json.put("cities", this.toArray());
         json.toJson(writer);
     }

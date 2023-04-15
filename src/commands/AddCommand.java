@@ -5,6 +5,7 @@ import common.AppClient;
 import models.*;
 
 
+import java.util.List;
 
 import static utils.CityReader.*;
 
@@ -14,10 +15,15 @@ import static utils.CityReader.*;
  * @version 1.0
  */
 public class AddCommand implements Command {
+    private List collection;
+    public AddCommand(List collection){
+
+        this.collection = collection;
+    }
     @Override
     public void execute() {
         City city = getCity();
-        AppClient.cities.add(city);
+        collection.add(city);
         System.out.println("Congratulations! City added to collection");
     }
     /**

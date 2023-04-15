@@ -7,8 +7,14 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ExecuteScriptCommand implements Command{
+    private List collection;
+    public ExecuteScriptCommand(List collection){
+
+        this.collection = collection;
+    }
     @Override
     public void execute() {
         execute("commands.txt");
@@ -17,7 +23,7 @@ public class ExecuteScriptCommand implements Command{
     @Override
     public void execute(String filename) {
 
-        Invoker invoker = new Invoker();
+        Invoker invoker = new Invoker(collection);
         for (String line: ReadFile(filename)){
             System.out.println("Running ..." + line);
             invoker.run(line);
@@ -37,7 +43,7 @@ public class ExecuteScriptCommand implements Command{
             }
 
         } catch (IOException e) {
-            System.out.println("Ошибка");
+            System.out.println("Warning");
         }
 
         return lines;
