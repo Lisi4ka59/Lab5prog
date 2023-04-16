@@ -21,6 +21,9 @@ public class Human implements Jsonable {
     public java.util.Date getBirthday(){
         return birthday;
     }
+    public String getStringBirthday(){
+        return new SimpleDateFormat("dd.MM.yyyy").format(getBirthday());
+    }
     @Override
     public String toJson() {
         final StringWriter writable = new StringWriter();
@@ -35,7 +38,11 @@ public class Human implements Jsonable {
     public void toJson(Writer writer) throws IOException {
         final JsonObject json = new JsonObject();
         json.put("age", this.getAge());
-        json.put("birthday", new SimpleDateFormat("dd.MM.yyyy").format(getBirthday()));
+        json.put("birthday", getStringBirthday());
         json.toJson(writer);
+    }
+    @Override
+    public String toString (){
+        return String.format("Age = %d, birthday = %s\n", getAge(), getStringBirthday());
     }
 }

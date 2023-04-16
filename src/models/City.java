@@ -4,7 +4,6 @@ import com.github.cliftonlabs.json_simple.JsonKey;
 import com.github.cliftonlabs.json_simple.JsonObject;
 import com.github.cliftonlabs.json_simple.Jsonable;
 import com.github.cliftonlabs.json_simple.Jsoner;
-
 import java.io.IOException;
 import java.io.StringWriter;
 import java.io.Writer;
@@ -65,21 +64,21 @@ public class City implements Jsonable, Comparable<City> {
         setName(jsonObject.getString(nameKey));
         setId(jsonObject.getLong(idKey));
         JsonObject joCoordinates  = (JsonObject)jsonObject.get ("coordinates");
-        this.coordinates = new Coordinates(joCoordinates.getDouble(xKey),joCoordinates.getFloat(yKey));
+        setJsonCoordinates(joCoordinates.getDouble(xKey),joCoordinates.getFloat(yKey));
         setPopulation(jsonObject.getLong(populationKey));
         setArea(jsonObject.getDouble(areaKey));
         if (jsonObject.getString(standardOfLivingKey)==null)
-            this.standardOfLiving = null;
+            setStandardOfLiving(null);
         else
-            this.standardOfLiving =StandardOfLiving.valueOf(jsonObject.getString(standardOfLivingKey));
+            setStandardOfLiving(StandardOfLiving.valueOf(jsonObject.getString(standardOfLivingKey)));
         if (jsonObject.getString(governmentKey)==null)
-            this.government = null;
+            setGovernment(null);
         else
-            this.government =Government.valueOf(jsonObject.getString(governmentKey));
+            setGovernment(Government.valueOf(jsonObject.getString(governmentKey)));
         this.climate =Climate.valueOf(jsonObject.getString(climateKey));
         JsonObject joGovernor  = (JsonObject)jsonObject.get ("governor");
         if (joGovernor.getString(ageKey)==null || joGovernor.getString(birthdayKey)==null)
-            this.governor = null;
+            setGovernor(null);
         else {
             String birthdayString=joGovernor.getString(birthdayKey);
             DateFormat df = new SimpleDateFormat("dd.MM.yyyy");
@@ -89,7 +88,7 @@ public class City implements Jsonable, Comparable<City> {
             } catch (ParseException i) {
                 birthday = null;
             }
-            this.governor = new Human(joGovernor.getLong(ageKey), birthday);
+            setJsonGovernor(joGovernor.getLong(ageKey), birthday);
         }
     }
 
@@ -134,6 +133,12 @@ public class City implements Jsonable, Comparable<City> {
         }
         this.coordinates = coordinates;
     }
+    public void setJsonCoordinates(double x, float y){
+        if (x<=-25){
+            throw new IllegalArgumentException("X can not be equals or less than -25");
+        }
+        this.coordinates = new Coordinates(x, y);
+    }
 
     public Coordinates getCoordinates(){
         return coordinates;
@@ -168,6 +173,9 @@ public class City implements Jsonable, Comparable<City> {
     }
 
     public void setMetersAboveSeaLevel (int metersAboveSeaLevel){
+        if (metersAboveSeaLevel < -432 || metersAboveSeaLevel > 8849) {
+            throw new IllegalArgumentException("Field metersAboveSeaLevel can not be less than -432 or more than 8849");
+        }
         this.metersAboveSeaLevel = metersAboveSeaLevel;
     }
 
@@ -189,20 +197,13 @@ public class City implements Jsonable, Comparable<City> {
     }
 
     public void setGovernment (Government government){
-        if (government == null) {
-            throw new NullPointerException("Field government can not be null");
-        }
         this.government = government;
     }
-
     public Government getGovernment (){
         return government;
     }
 
     public void setStandardOfLiving (StandardOfLiving standardOfLiving){
-        if (standardOfLiving == null) {
-            throw new NullPointerException("Field standardOfLiving can not be null");
-        }
         this.standardOfLiving = standardOfLiving;
     }
 
@@ -211,10 +212,10 @@ public class City implements Jsonable, Comparable<City> {
     }
 
     public void setGovernor (Human governor){
-        if (governor == null) {
-            throw new NullPointerException("Field governor can not be null");
-        }
         this.governor = governor;
+    }
+    public void setJsonGovernor(long age, Date birthday){
+        this.governor = new Human(age, birthday);
     }
 
     public Human getGovernor (){
@@ -233,7 +234,7 @@ public class City implements Jsonable, Comparable<City> {
     }
     @Override
     public String toString(){
-        return String.format("Name: %s\nID: %d\nCreation date: %s\nCoordinates: %sStandard of living: %s\nGovernment: %s\nClimate: %s\nStandard of living: %s\nGovernment: %s\nArea: %sPopulation: %d\n", name, getId(), getCreationDate(), getCoordinates(), getStandardOfLiving(), getGovernment(), getClimate(), getStandardOfLiving(), getGovernment(), getStringArea(), getPopulation());
+        return String.format("Name: %s\nID: %d\nCreation date: %s\nCoordinates: %sStandard of living: %s\nGovernment: %s\nClimate: %s\nStandard of living: %s\nArea: %sPopulation: %d\nMeters above sea level: %d\nGovernor %s", getName(), getId(), getCreationDate(), getCoordinates(), getStandardOfLiving(), getGovernment(), getClimate(), getStandardOfLiving(), getStringArea(), getPopulation(), getMetersAboveSeaLevel(), getGovernor());
     }
 
     @Override

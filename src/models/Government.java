@@ -12,8 +12,10 @@ public enum Government {
             return Government.COMMUNISM;
         } else if (governmentNumber == 3) {
             return Government.MERITOCRACY;
-        } else {
+        } else if (governmentNumber == 4){
             return Government.ETHNOCRACY;
+        } else{
+            return null;
         }
     }
 }

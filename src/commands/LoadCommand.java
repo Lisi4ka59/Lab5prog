@@ -37,7 +37,7 @@ public class LoadCommand implements Command{
                 collection.add(city);
             }
             System.out.println("Collection uploaded");
-        } catch (JsonException e) {
+        } catch (JsonException | IllegalArgumentException | NullPointerException e) {
             System.out.println("Can not upload collection, data in the file incorrect!");
         } catch (IOException e) {
             System.out.println("Can not upload collection, the file does not exist!");

@@ -1,13 +1,12 @@
 {
-	"creation_collection_date": "15.04.2023 21:23:36",
+	"creation_collection_date": "17.04.2023 01:18:02",
 	"cities": [
-
 		{
 			"area": 1.0,
-			"government": "ANARCHY",
-			"name": "perm",
+			"government": null,
+			"name": "Perm",
 			"coordinates": {
-				"x": 23.0,
+				"x": 132.0,
 				"y": 1.0
 			},
 			"meters_above_sea_level": 0,
@@ -24,14 +23,14 @@
 		{
 			"area": 1.0,
 			"government": "ANARCHY",
-			"name": "dhsbaj",
+			"name": "Dubai",
 			"coordinates": {
 				"x": 1.0,
 				"y": 1.0
 			},
 			"meters_above_sea_level": 0,
 			"standard_of_living": "ULTRA_HIGH",
-			"id": 1681493285389,
+			"id": 1681683023548,
 			"creation_date": "14.04.2023 20:28:05",
 			"climate": "TROPICAL_SAVANNA",
 			"governor": {
@@ -43,12 +42,12 @@
 		{
 			"area": 12.0,
 			"government": "COMMUNISM",
-			"name": "Moskou",
+			"name": "Moscow",
 			"coordinates": {
 				"x": -24.0,
 				"y": 3.245679E+22
 			},
-			"meters_above_sea_level": 259,
+			"meters_above_sea_level": 0,
 			"standard_of_living": "NIGHTMARE",
 			"id": 1681583617210,
 			"creation_date": "15.04.2023 21:33:37",
