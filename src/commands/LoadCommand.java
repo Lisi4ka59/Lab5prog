@@ -2,12 +2,16 @@ package commands;
 
 import com.github.cliftonlabs.json_simple.*;
 import models.City;
+import org.apache.commons.lang.StringUtils;
 
 import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.Objects;
+
+import static utils.Checker.*;
 
 public class LoadCommand implements Command{
     private final List collection;
@@ -15,12 +19,10 @@ public class LoadCommand implements Command{
 
         this.collection = collection;
     }
-    @Override
-    public void execute() {
+    private void load(String fileName){
         try {
-            String fileName = "cities.json";
             String path = System.getenv("CITIES_PATH");
-            if (path!=null)
+            if (path!=null && StringUtils.equals(fileName, "cities.json"))
                 fileName = path;
             Reader reader = Files.newBufferedReader(Paths.get(fileName));
             JsonObject jsonObject = (JsonObject) Jsoner.deserialize(reader);
@@ -34,7 +36,21 @@ public class LoadCommand implements Command{
         } catch (JsonException e) {
             System.out.println("Can not upload collection, data in the file incorrect!");
         } catch (IOException e) {
-                System.out.println("Can not upload collection, the file does not exist!");
-            }
+            System.out.println("Can not upload collection, the file does not exist!");
+        }
+    }
+    @Override
+    public void execute() {
+        load("cities.json");
+    }
+    @Override
+    public void execute(String fileName){
+        if (fileNameCheck(fileName)){
+            load(fileName);
+        }
+        else {
+            fileName = inputFileName("Entered string can not be file name!\nRepeat input: ");
+            load(fileName);
+        }
     }
 }
