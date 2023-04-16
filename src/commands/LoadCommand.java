@@ -1,6 +1,7 @@
 package commands;
 
 import com.github.cliftonlabs.json_simple.*;
+import common.Invoker;
 import models.City;
 import org.apache.commons.lang.StringUtils;
 
@@ -10,6 +11,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 import java.util.Objects;
+import java.util.Scanner;
 
 import static utils.Checker.*;
 
@@ -27,6 +29,8 @@ public class LoadCommand implements Command{
             Reader reader = Files.newBufferedReader(Paths.get(fileName));
             JsonObject jsonObject = (JsonObject) Jsoner.deserialize(reader);
             JsonArray jsonArray = (JsonArray)jsonObject.get("cities");
+            Invoker invoker = new Invoker(collection);
+            invoker.run("clear noOutput");
             for (Object obj: jsonArray) {
                 JsonObject jo = (JsonObject) obj;
                 City city = new City(jo);
@@ -45,11 +49,11 @@ public class LoadCommand implements Command{
     }
     @Override
     public void execute(String fileName){
-        if (fileNameCheck(fileName)){
+        if (fileNameCheck(fileName, "json")){
             load(fileName);
         }
         else {
-            fileName = inputFileName("Entered string can not be file name!\nRepeat input: ");
+            fileName = inputFileName("Entered string can not be file name!\nRepeat input: ", "json");
             load(fileName);
         }
     }

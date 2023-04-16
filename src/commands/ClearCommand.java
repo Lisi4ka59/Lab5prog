@@ -1,7 +1,5 @@
 package commands;
 
-import common.AppClient;
-
 import java.util.List;
 
 public class ClearCommand implements Command{
@@ -14,5 +12,9 @@ public class ClearCommand implements Command{
     public void execute() {
         collection.clear();
         System.out.println("Collection cleared");
+    }
+    @Override
+    public void execute(String output) {
+        collection.clear();
     }
 }

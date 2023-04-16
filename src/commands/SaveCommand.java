@@ -34,11 +34,11 @@ public class SaveCommand implements Command{
     }
     @Override
     public void execute(String fileName){
-        if (fileNameCheck(fileName)){
+        if (fileNameCheck(fileName, "json")){
             save(fileName);
         }
         else {
-            fileName = inputFileName("Entered string can not be file name!\nRepeat input: ");
+            fileName = inputFileName("Entered string can not be file name!\nRepeat input: ", "json");
             save(fileName);
         }
     }

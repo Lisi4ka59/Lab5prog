@@ -163,7 +163,7 @@ public class Checker {
             }
         } while (true);
     }
-    public static String inputFileName(String prompt) {
+    public static String inputFileName(String prompt, String rightExtension) {
         String fileExtension;
         String fileName = inputStringNotNull(prompt);
         do {
@@ -174,7 +174,7 @@ public class Checker {
                     do {
                         if (!(fileName.contains("/") || fileName.contains(":") || fileName.contains("*") || fileName.contains("?") || fileName.contains("\"") || fileName.contains("\\") || fileName.contains("<") || fileName.contains(">") || fileName.contains("|"))) {
                             do {
-                                if (StringUtils.equals(fileExtension, "json")) {
+                                if (StringUtils.equals(fileExtension, rightExtension)) {
                                     return String.format("%s.%s", fileName, fileExtension);
                                 } else {
                                     fileExtension = inputStringNotNull("Invalid file extension!\nInput correct file extension: ");
@@ -189,11 +189,11 @@ public class Checker {
                 }
         }while (true);
     }
-    public static boolean fileNameCheck(String fileName){
+    public static boolean fileNameCheck(String fileName, String rightExtension){
         String[] testName = fileName.split("\\.");
         if (testName.length == 2) {
             if (!(fileName.contains("/") || fileName.contains(":") || fileName.contains("*") || fileName.contains("?") || fileName.contains("\"") || fileName.contains("\\") || fileName.contains("<") || fileName.contains(">") || fileName.contains("|"))) {
-                if (StringUtils.equals(testName[1], "json")){
+                if (StringUtils.equals(testName[1], rightExtension)){
                     return true;
                 }
             }
