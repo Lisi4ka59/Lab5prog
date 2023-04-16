@@ -5,7 +5,7 @@ import common.AppClient;
 import java.util.List;
 
 public class ClearCommand implements Command{
-    private List collection;
+    private final List collection;
     public ClearCommand(List collection){
 
         this.collection = collection;

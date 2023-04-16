@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ExecuteScriptCommand implements Command{
-    private List collection;
+    private final List collection;
     public ExecuteScriptCommand(List collection){
 
         this.collection = collection;
@@ -34,8 +34,8 @@ public class ExecuteScriptCommand implements Command{
         ArrayList<String> lines = new ArrayList<>();
         try{
 
-            FileInputStream fstream = new FileInputStream(filename);
-            BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
+            FileInputStream fStream = new FileInputStream(filename);
+            BufferedReader br = new BufferedReader(new InputStreamReader(fStream));
             String line;
 
             while ((line = br.readLine()) != null) {

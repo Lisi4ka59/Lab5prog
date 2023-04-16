@@ -1,25 +1,17 @@
 package commands;
 
 import models.City;
-
 import java.util.List;
-import java.util.Scanner;
-
+import static utils.Checker.inputLong;
 import static utils.CityReader.*;
-import static common.AppClient.cities;
 
 public class UpdateIdCommand implements Command{
-    private List<City> collection;
+    private final List<City> collection;
     public UpdateIdCommand(List<City> collection){
 
         this.collection = collection;
     }
-    @Override
-    public void execute() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter id: ");
-        Long id = scanner.nextLong();
-        scanner.nextLine();
+    private void update(long id){
         boolean update = false;
         for (City city:collection) {
             if (city.getId()==id){
@@ -40,5 +32,21 @@ public class UpdateIdCommand implements Command{
             System.out.printf("City %d updated\n", id);
         else
             System.out.printf("City %d doesn't exist\n", id);
+    }
+    @Override
+    public void execute() {
+        long id = inputLong("Enter id: ");
+        update(id);
+    }
+    @Override
+    public void execute(String stringId){
+        long id;
+        try {
+            id = Long.parseLong(stringId);
+        } catch (NumberFormatException e) {
+            System.out.println("Entered value can not be city id!");
+            id = inputLong("Enter correct city id: ");
+        }
+        update(id);
     }
 }

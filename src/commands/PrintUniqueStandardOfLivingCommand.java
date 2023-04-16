@@ -6,10 +6,8 @@ import models.StandardOfLiving;
 import java.util.ArrayList;
 import java.util.List;
 
-import static common.AppClient.cities;
-
 public class PrintUniqueStandardOfLivingCommand implements Command{
-    private List<City> collection;
+    private final List<City> collection;
     public PrintUniqueStandardOfLivingCommand(List<City> collection){
 
         this.collection = collection;

@@ -5,10 +5,8 @@ import utils.StandardOfLivingComparator;
 
 import java.util.List;
 
-import static common.AppClient.cities;
-
 public class PrintFieldAscendingStandardOfLivingCommand implements Command{
-    private List<City> collection;
+    private final List<City> collection;
     public PrintFieldAscendingStandardOfLivingCommand(List<City> collection){
 
         this.collection = collection;

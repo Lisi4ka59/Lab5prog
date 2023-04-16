@@ -1,13 +1,9 @@
 package commands;
 
-import models.City;
-
 import java.util.List;
 
-import static common.AppClient.cities;
-
 public class PrintDescendingCommand implements Command{
-    private List collection;
+    private final List collection;
     public PrintDescendingCommand(List collection){
 
         this.collection = collection;

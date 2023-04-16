@@ -3,24 +3,20 @@ package commands;
 import models.City;
 
 import java.util.List;
-import java.util.Scanner;
 
-import static common.AppClient.cities;
+import static utils.Checker.inputLong;
 
-public class RemoveByIdCommand implements Command{
-    private List<City> collection;
-    public RemoveByIdCommand(List<City> collection){
+public class RemoveByIdCommand implements Command {
+    private final List<City> collection;
 
+    public RemoveByIdCommand(List<City> collection) {
         this.collection = collection;
     }
-    @Override
-    public void execute() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter id: ");
-        Long id = scanner.nextLong();
+
+    private void remove(long id) {
         boolean removed = false;
-        for (City city:collection) {
-            if (city.getId()==id){
+        for (City city : collection) {
+            if (city.getId() == id) {
                 removed = collection.remove(city);
                 break;
             }
@@ -29,5 +25,22 @@ public class RemoveByIdCommand implements Command{
             System.out.printf("City %d removed\n", id);
         else
             System.out.printf("City %d doesn't exist\n", id);
+    }
+
+    @Override
+    public void execute() {
+        remove(inputLong("Enter city id: "));
+    }
+
+    @Override
+    public void execute(String stringId) {
+        long id;
+        try {
+            id = Long.parseLong(stringId);
+        } catch (NumberFormatException e) {
+            System.out.println("Entered value can not be city id!");
+            id = inputLong("Enter correct city id: ");
+        }
+        remove(id);
     }
 }

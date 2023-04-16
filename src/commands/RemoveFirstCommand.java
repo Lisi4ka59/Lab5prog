@@ -1,12 +1,9 @@
 package commands;
-
-import common.AppClient;
 import models.City;
-
 import java.util.List;
 
 public class RemoveFirstCommand implements Command{
-    private List<City> collection;
+    private final List<City> collection;
     public RemoveFirstCommand(List<City> collection){
 
         this.collection = collection;

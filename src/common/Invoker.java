@@ -29,9 +29,7 @@ public class Invoker {
 
     public void run(String commandText)
     {
-
         String[] command =  commandText.split("\s+");
-
         if (commands.containsKey(command[0]))
         {
             Command cmd = commands.get(command[0]);

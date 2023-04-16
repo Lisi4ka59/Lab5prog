@@ -8,7 +8,7 @@ import java.util.List;
 import static common.AppClient.cities;
 
 public class AddIfMinCommand implements Command{
-    private List<City> collection;
+    private final List<City> collection;
     public AddIfMinCommand(List<City> collection){
 
         this.collection = collection;

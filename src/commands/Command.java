@@ -1,10 +1,10 @@
 package commands;
 
 public interface Command {
-    public void execute();
+    void execute();
 
     default void execute(String args)
     {
-        execute();
+        execute(args);
     }
 }

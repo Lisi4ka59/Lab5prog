@@ -2,18 +2,12 @@ package commands;
 
 import com.github.cliftonlabs.json_simple.Jsoner;
 import models.*;
-
-
 import java.io.BufferedWriter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
-
-import static common.AppClient.cities;
-
-
 public class SaveCommand implements Command{
-    private List<City> collection;
+    private final List<City> collection;
     public SaveCommand(List<City> collection){
 
         this.collection = collection;

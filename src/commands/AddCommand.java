@@ -1,12 +1,7 @@
 package commands;
 
-
-import common.AppClient;
 import models.*;
-
-
 import java.util.List;
-
 import static utils.CityReader.*;
 
 /**
@@ -15,7 +10,7 @@ import static utils.CityReader.*;
  * @version 1.0
  */
 public class AddCommand implements Command {
-    private List collection;
+    private final List collection;
     public AddCommand(List collection){
 
         this.collection = collection;
@@ -29,7 +24,6 @@ public class AddCommand implements Command {
     /**
      * add command, use to make a city
      * @autor Mikhail Nachinkin
-     * @version 1.0
      */
     public static City getCity() {
         String name = inputName();
@@ -41,7 +35,6 @@ public class AddCommand implements Command {
         Government government = inputGovernment();
         StandardOfLiving standardOfLiving = inputStandardOfLiving();
         Human governor = inputGovernor();
-        City city = new City(name, coordinates, population, area, metersAboveSeaLevel, climate, government, standardOfLiving, governor);
-        return city;
+        return new City(name, coordinates, population, area, metersAboveSeaLevel, climate, government, standardOfLiving, governor);
     }
 }

@@ -1,13 +1,10 @@
 package commands;
 
 import models.City;
-
 import java.util.List;
 
-import static common.AppClient.cities;
-
 public class ShowCommand implements Command{
-    private List<City> collection;
+    private final List<City> collection;
     public ShowCommand(List<City> collection){
 
         this.collection = collection;

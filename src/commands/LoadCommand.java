@@ -2,7 +2,6 @@ package commands;
 
 import com.github.cliftonlabs.json_simple.*;
 import models.City;
-import utils.CityLinkedList;
 
 import java.io.IOException;
 import java.io.Reader;
@@ -10,17 +9,14 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 
-import static common.AppClient.cities;
-
 public class LoadCommand implements Command{
-    private List collection;
+    private final List collection;
     public LoadCommand(List collection){
 
         this.collection = collection;
     }
     @Override
     public void execute() {
-        // read JSON from a file
         try {
             String fileName = "cities.json";
             String path = System.getenv("CITIES_PATH");
@@ -29,7 +25,6 @@ public class LoadCommand implements Command{
             Reader reader = Files.newBufferedReader(Paths.get(fileName));
             JsonObject jsonObject = (JsonObject) Jsoner.deserialize(reader);
             JsonArray jsonArray = (JsonArray)jsonObject.get("cities");
-            //cities=new CityLinkedList();
             for (Object obj: jsonArray) {
                 JsonObject jo = (JsonObject) obj;
                 City city = new City(jo);

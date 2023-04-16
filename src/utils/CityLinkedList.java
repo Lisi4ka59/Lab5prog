@@ -14,7 +14,7 @@ import java.util.LinkedList;
 import static common.AppClient.cities;
 
 public class CityLinkedList extends LinkedList<City> implements Jsonable {
-    private LocalDateTime creationCollectionDate;
+    private final LocalDateTime creationCollectionDate;
     public CityLinkedList () {
         super();
         creationCollectionDate = LocalDateTime.now();

@@ -8,8 +8,8 @@ import java.io.StringWriter;
 import java.io.Writer;
 
 public class Coordinates implements Jsonable {
-    private Double x; //Значение поля должно быть больше -25, Поле не может быть null
-    private Float y; //Поле не может быть null
+    private final Double x; //Значение поля должно быть больше -25, Поле не может быть null
+    private final Float y; //Поле не может быть null
     public Coordinates (double x, Float y){
         this.x = x;
         this.y = y;
