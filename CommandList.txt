@@ -1,0 +1,8 @@
+load cities.json
+help
+show
+info
+remove_by_id 1681562362968
+save .json
+clear
+save null.json
