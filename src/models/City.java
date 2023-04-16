@@ -13,8 +13,10 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Date;
 
+import static common.AppClient.cities;
 import static utils.Checker.checkLocalDateTime;
 
 public class City implements Jsonable, Comparable<City> {
@@ -57,11 +59,11 @@ public class City implements Jsonable, Comparable<City> {
         final JsonKey birthdayKey = Jsoner.mintJsonKey("birthday", "");
         final JsonKey idKey = Jsoner.mintJsonKey("id", "");
         final JsonKey creationDateKey = Jsoner.mintJsonKey("creation_date", "");
-        setId(jsonObject.getLong(idKey));
         String creationDateString = jsonObject.getString(creationDateKey);
         creationDate = checkLocalDateTime(creationDateString);
         setCreationDate(creationDate);
         setName(jsonObject.getString(nameKey));
+        setId(jsonObject.getLong(idKey));
         JsonObject joCoordinates  = (JsonObject)jsonObject.get ("coordinates");
         this.coordinates = new Coordinates(joCoordinates.getDouble(xKey),joCoordinates.getFloat(yKey));
         setPopulation(jsonObject.getLong(populationKey));
@@ -101,16 +103,29 @@ public class City implements Jsonable, Comparable<City> {
     public String getCreationDate (){
         return creationDate.format(DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm:ss"));
     }
+    public Long getId (){
+        return id;
+    }
 
     public void setId (Long id){
         if (id == null) {
             throw new NullPointerException("Field id can not be null");
         }
-        this.id = id;
-    }
-
-    public long getId (){
-        return id;
+        ArrayList<Long> list = new ArrayList<>();
+        boolean right = true;
+        for (City city:cities) {
+            list.add(city.id);
+            if (list.contains(id)) {
+                right = false;
+                System.out.printf("%s ID is not unique! ID for city %s will be generate automatic\n", getName(), getName());
+                Date date = new Date();
+                id = date.getTime();
+                this.id = id;
+            }
+        }
+        if (right){
+            this.id = id;
+        }
     }
 
     public void setCoordinates (Coordinates coordinates){

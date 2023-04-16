@@ -1,6 +1,26 @@
 {
 	"creation_collection_date": "15.04.2023 21:23:36",
 	"cities": [
+
+		{
+			"area": 1.0,
+			"government": "ANARCHY",
+			"name": "perm",
+			"coordinates": {
+				"x": 23.0,
+				"y": 1.0
+			},
+			"meters_above_sea_level": 0,
+			"standard_of_living": "ULTRA_HIGH",
+			"id": 1681493285389,
+			"creation_date": "15.04.2023 15:39:22",
+			"climate": "TROPICAL_SAVANNA",
+			"governor": {
+				"birthday": "01.01.0001",
+				"age": 1
+			},
+			"population": 1
+		},
 		{
 			"area": 1.0,
 			"government": "ANARCHY",
@@ -13,25 +33,6 @@
 			"standard_of_living": "ULTRA_HIGH",
 			"id": 1681493285389,
 			"creation_date": "14.04.2023 20:28:05",
-			"climate": "TROPICAL_SAVANNA",
-			"governor": {
-				"birthday": "01.01.0001",
-				"age": 1
-			},
-			"population": 1
-		},
-		{
-			"area": 1.0,
-			"government": "ANARCHY",
-			"name": "perm",
-			"coordinates": {
-				"x": 23.0,
-				"y": 1.0
-			},
-			"meters_above_sea_level": 0,
-			"standard_of_living": "ULTRA_HIGH",
-			"id": 1681562362968,
-			"creation_date": "15.04.2023 15:39:22",
 			"climate": "TROPICAL_SAVANNA",
 			"governor": {
 				"birthday": "01.01.0001",
