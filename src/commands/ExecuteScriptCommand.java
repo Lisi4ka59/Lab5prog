@@ -54,7 +54,7 @@ public class ExecuteScriptCommand implements Command{
             }
 
         } catch (IOException e) {
-            System.out.println("Warning");
+            System.out.printf("File %s does not exist\n", filename);
         }
         return lines;
     }

@@ -6,6 +6,7 @@ import utils.CityComparator;
 import java.util.List;
 
 import static common.AppClient.cities;
+import static utils.CityLinkedList.idRepeat;
 
 public class AddIfMinCommand implements Command{
     private final List<City> collection;
@@ -25,6 +26,17 @@ public class AddIfMinCommand implements Command{
     public void execute() {
         City city = AddCommand.getCity(); // получить город с консоли
         if (addIfMin(city)){
+            System.out.println("City was successfully added to collection");
+        }
+        else{
+            System.out.println("City is not added to collection");
+        }
+    }
+    @Override
+    public void execute(String args) {
+        City city = AddCommand.getCityArgs(args);
+        if (addIfMin(city)){
+            idRepeat+=1;
             System.out.println("City was successfully added to collection");
         }
         else{

@@ -13,8 +13,10 @@ public enum Climate {
             return Climate.HUMIDCONTINENTAL;
         } else if (climateNumber == 3) {
             return Climate.OCEANIC;
-        } else {
+        } else if (climateNumber == 4){
             return Climate.STEPPE;
+        } else {
+            throw new IllegalArgumentException();
         }
     }
 }

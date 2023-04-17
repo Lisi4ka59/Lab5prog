@@ -17,6 +17,7 @@ import java.util.Date;
 
 import static common.AppClient.cities;
 import static utils.Checker.checkLocalDateTime;
+import static utils.CityLinkedList.idRepeat;
 
 public class City implements Jsonable, Comparable<City> {
     private LocalDateTime creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
@@ -33,7 +34,7 @@ public class City implements Jsonable, Comparable<City> {
     public City (String name, Coordinates coordinates, Long population, double area, int metersAboveSeaLevel,
                  Climate climate, Government government, StandardOfLiving standardOfLiving, Human governor){
         Date date = new Date();
-        id = date.getTime();
+        id = date.getTime() + idRepeat;
         creationDate = LocalDateTime.now();
         this.name = name;
         this.coordinates = coordinates;
@@ -105,7 +106,6 @@ public class City implements Jsonable, Comparable<City> {
     public Long getId (){
         return id;
     }
-
     public void setId (Long id){
         if (id == null) {
             throw new NullPointerException("Field id can not be null");
@@ -118,7 +118,8 @@ public class City implements Jsonable, Comparable<City> {
                 right = false;
                 System.out.printf("%s ID is not unique! ID for city %s will be generate automatic\n", getName(), getName());
                 Date date = new Date();
-                id = date.getTime();
+                id = date.getTime() + idRepeat;
+                idRepeat+=1;
                 this.id = id;
             }
         }
@@ -234,7 +235,7 @@ public class City implements Jsonable, Comparable<City> {
     }
     @Override
     public String toString(){
-        return String.format("Name: %s\nID: %d\nCreation date: %s\nCoordinates: %sStandard of living: %s\nGovernment: %s\nClimate: %s\nStandard of living: %s\nArea: %sPopulation: %d\nMeters above sea level: %d\nGovernor %s", getName(), getId(), getCreationDate(), getCoordinates(), getStandardOfLiving(), getGovernment(), getClimate(), getStandardOfLiving(), getStringArea(), getPopulation(), getMetersAboveSeaLevel(), getGovernor());
+        return String.format("Name: %s\nID: %d\nCreation date: %s\nCoordinates: %sStandard of living: %s\nGovernment: %s\nClimate: %s\nArea: %sPopulation: %d\nMeters above sea level: %d\nGovernor %s", getName(), getId(), getCreationDate(), getCoordinates(), getStandardOfLiving(), getGovernment(), getClimate(), getStringArea(), getPopulation(), getMetersAboveSeaLevel(), getGovernor());
     }
 
     @Override

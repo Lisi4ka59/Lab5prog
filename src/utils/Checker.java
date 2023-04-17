@@ -99,6 +99,19 @@ public class Checker {
             }
         } while (true);
     }
+    public static Date checkDate(String Date) {
+        Date = trim(Date);
+        Date = Date.replace(" ", ".");
+        String[] DateArray = Date.split("\\.");
+        try {
+            int day = Integer.parseInt(DateArray[0]);
+            int month = Integer.parseInt(DateArray[1]) - 1;
+            int year = Integer.parseInt(DateArray[2]) - 1900;
+            return new Date(year, month, day);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException();
+        }
+    }
     public static LocalDateTime checkLocalDateTime(String localDate) {
             localDate = trim(localDate);
             localDate = localDate.replace(":", ".");
