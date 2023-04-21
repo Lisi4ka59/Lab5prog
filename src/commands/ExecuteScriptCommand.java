@@ -9,8 +9,8 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-import static utils.Checker.fileNameCheck;
-import static utils.Checker.inputFileName;
+import static utils.CityLinkedList.isSave;
+
 
 public class ExecuteScriptCommand implements Command{
     private final List collection;
@@ -22,23 +22,22 @@ public class ExecuteScriptCommand implements Command{
         Invoker invoker = new Invoker(collection);
         for (String line: ReadFile(fileName)){
             System.out.println("Running ..." + line);
-            invoker.run(line);
+            if (line!=null && !line.startsWith("execute_script"))
+                invoker.run(line);
+            else
+                System.out.println("Executing the \"execute_script\" command can be very dangerous as it can cause recursion!");
         }
     }
     @Override
     public void execute() {
         execute("commands.txt");
+        isSave = false;
     }
 
     @Override
     public void execute(String fileName) {
-        if (fileNameCheck(fileName, "txt")){
-            exe(fileName);
-        }
-        else {
-            fileName = inputFileName("Entered string can not be file name!\nRepeat input: ", "txt");
-            exe(fileName);
-        }
+        exe(fileName);
+        isSave = false;
     }
 
     private ArrayList<String> ReadFile(String filename){

@@ -4,16 +4,14 @@ import com.github.cliftonlabs.json_simple.*;
 import common.Invoker;
 import models.City;
 import org.apache.commons.lang.StringUtils;
+import utils.CityComparator;
 
 import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
-import java.util.Objects;
-import java.util.Scanner;
 
-import static utils.Checker.*;
 
 public class LoadCommand implements Command{
     private final List collection;
@@ -46,15 +44,11 @@ public class LoadCommand implements Command{
     @Override
     public void execute() {
         load("cities.json");
+        collection.sort(new CityComparator());
     }
     @Override
     public void execute(String fileName){
-        if (fileNameCheck(fileName, "json")){
-            load(fileName);
-        }
-        else {
-            fileName = inputFileName("Entered string can not be file name!\nRepeat input: ", "json");
-            load(fileName);
-        }
+        load(fileName);
+        collection.sort(new CityComparator());
     }
 }

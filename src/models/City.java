@@ -18,6 +18,7 @@ import java.util.Date;
 import static common.AppClient.cities;
 import static utils.Checker.checkLocalDateTime;
 import static utils.CityLinkedList.idRepeat;
+import static utils.CityLinkedList.isSave;
 
 public class City implements Jsonable, Comparable<City> {
     private LocalDateTime creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически

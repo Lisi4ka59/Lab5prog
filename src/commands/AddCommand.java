@@ -1,12 +1,14 @@
 package commands;
 
 import models.*;
+import utils.CityComparator;
 
 import java.util.Date;
 import java.util.List;
 
 import static utils.Checker.checkDate;
 import static utils.CityLinkedList.idRepeat;
+import static utils.CityLinkedList.isSave;
 import static utils.CityReader.*;
 
 /**
@@ -25,6 +27,8 @@ public class AddCommand implements Command {
         City city = getCity();
         collection.add(city);
         System.out.println("Congratulations! City added to collection");
+        collection.sort(new CityComparator());
+        isSave = false;
     }
     @Override
     public void execute(String args) {
@@ -32,6 +36,8 @@ public class AddCommand implements Command {
         collection.add(city);
         idRepeat+=1;
         System.out.println("Congratulations! City added to collection");
+        collection.sort(new CityComparator());
+        isSave = false;
     }
     /**
      * add command, use to make a city

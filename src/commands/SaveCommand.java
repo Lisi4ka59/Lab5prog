@@ -7,8 +7,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 
-import static utils.Checker.fileNameCheck;
-import static utils.Checker.inputFileName;
+import static utils.CityLinkedList.isSave;
 
 public class SaveCommand implements Command{
     private final List<City> collection;
@@ -25,21 +24,17 @@ public class SaveCommand implements Command{
             writer.close();
             System.out.println("Collection saved successfully");
         } catch (Exception ex) {
-            ex.getMessage();
+            System.out.printf("Error while saving file! %s\n", ex.getMessage());
         }
     }
     @Override
     public void execute() {
         save("cities.json");
+        isSave = true;
     }
     @Override
     public void execute(String fileName){
-        if (fileNameCheck(fileName, "json")){
-            save(fileName);
-        }
-        else {
-            fileName = inputFileName("Entered string can not be file name!\nRepeat input: ", "json");
-            save(fileName);
-        }
+        save(fileName);
+        isSave = true;
     }
 }

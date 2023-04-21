@@ -1,6 +1,63 @@
 {
-	"creation_collection_date": "17.04.2023 01:18:02",
+	"creation_collection_date": "21.04.2023 21:55:50",
 	"cities": [
+		{
+			"area": 1.0,
+			"government": "ANARCHY",
+			"name": "Dubai",
+			"coordinates": {
+				"x": 1.0,
+				"y": 1.0
+			},
+			"meters_above_sea_level": 0,
+			"standard_of_living": "ULTRA_HIGH",
+			"id": 1682103350803,
+			"creation_date": "14.04.2023 20:28:05",
+			"climate": "TROPICAL_SAVANNA",
+			"governor": {
+				"birthday": "01.01.0001",
+				"age": 1
+			},
+			"population": 1
+		},
+		{
+			"area": 12.0,
+			"government": "COMMUNISM",
+			"name": "Igrim",
+			"coordinates": {
+				"x": -24.0,
+				"y": 3.245679E+22
+			},
+			"meters_above_sea_level": 0,
+			"standard_of_living": "NIGHTMARE",
+			"id": 1682103350808,
+			"creation_date": "15.04.2023 21:33:37",
+			"climate": "TROPICAL_SAVANNA",
+			"governor": {
+				"birthday": "25.01.2004",
+				"age": 19
+			},
+			"population": 123456789
+		},
+		{
+			"area": 12.0,
+			"government": "COMMUNISM",
+			"name": "Moscow",
+			"coordinates": {
+				"x": -24.0,
+				"y": 3.245679E+22
+			},
+			"meters_above_sea_level": 0,
+			"standard_of_living": "NIGHTMARE",
+			"id": 1682103350805,
+			"creation_date": "15.04.2023 21:33:37",
+			"climate": "TROPICAL_SAVANNA",
+			"governor": {
+				"birthday": "25.01.2004",
+				"age": 19
+			},
+			"population": 123456789
+		},
 		{
 			"area": 1.0,
 			"government": null,
@@ -19,63 +76,6 @@
 				"age": 1
 			},
 			"population": 1
-		},
-		{
-			"area": 1.0,
-			"government": "ANARCHY",
-			"name": "Dubai",
-			"coordinates": {
-				"x": 1.0,
-				"y": 1.0
-			},
-			"meters_above_sea_level": 0,
-			"standard_of_living": "ULTRA_HIGH",
-			"id": 1,
-			"creation_date": "14.04.2023 20:28:05",
-			"climate": "TROPICAL_SAVANNA",
-			"governor": {
-				"birthday": "01.01.0001",
-				"age": 1
-			},
-			"population": 1
-		},
-		{
-			"area": 12.0,
-			"government": "COMMUNISM",
-			"name": "Moscow",
-			"coordinates": {
-				"x": -24.0,
-				"y": 3.245679E+22
-			},
-			"meters_above_sea_level": 0,
-			"standard_of_living": "NIGHTMARE",
-			"id": 1,
-			"creation_date": "15.04.2023 21:33:37",
-			"climate": "TROPICAL_SAVANNA",
-			"governor": {
-				"birthday": "25.01.2004",
-				"age": 19
-			},
-			"population": 123456789
-		},
-		{
-			"area": 12.0,
-			"government": "COMMUNISM",
-			"name": "Igrim",
-			"coordinates": {
-				"x": -24.0,
-				"y": 3.245679E+22
-			},
-			"meters_above_sea_level": 0,
-			"standard_of_living": "NIGHTMARE",
-			"id": 1,
-			"creation_date": "15.04.2023 21:33:37",
-			"climate": "TROPICAL_SAVANNA",
-			"governor": {
-				"birthday": "25.01.2004",
-				"age": 19
-			},
-			"population": 123456789
 		}
 	]
 }

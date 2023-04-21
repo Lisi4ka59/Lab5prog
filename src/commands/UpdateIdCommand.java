@@ -1,12 +1,14 @@
 package commands;
 
 import models.*;
+import utils.CityComparator;
 
 import java.util.Date;
 import java.util.List;
 
 import static utils.Checker.checkDate;
 import static utils.Checker.inputLong;
+import static utils.CityLinkedList.isSave;
 import static utils.CityReader.*;
 
 public class UpdateIdCommand implements Command{
@@ -68,6 +70,8 @@ public class UpdateIdCommand implements Command{
     public void execute() {
         long id = inputLong("Enter id: ");
         update(id);
+        collection.sort(new CityComparator());
+        isSave = false;
     }
     @Override
     public void execute(String args){
@@ -85,5 +89,7 @@ public class UpdateIdCommand implements Command{
         else {
             updateArgs(cityArgs);
         }
+        collection.sort(new CityComparator());
+        isSave = false;
     }
 }

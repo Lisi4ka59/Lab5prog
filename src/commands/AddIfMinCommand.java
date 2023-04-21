@@ -5,8 +5,8 @@ import utils.CityComparator;
 
 import java.util.List;
 
-import static common.AppClient.cities;
 import static utils.CityLinkedList.idRepeat;
+import static utils.CityLinkedList.isSave;
 
 public class AddIfMinCommand implements Command{
     private final List<City> collection;
@@ -31,6 +31,8 @@ public class AddIfMinCommand implements Command{
         else{
             System.out.println("City is not added to collection");
         }
+        collection.sort(new CityComparator());
+        isSave = false;
     }
     @Override
     public void execute(String args) {
@@ -42,5 +44,7 @@ public class AddIfMinCommand implements Command{
         else{
             System.out.println("City is not added to collection");
         }
+        collection.sort(new CityComparator());
+        isSave = false;
     }
 }

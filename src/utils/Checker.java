@@ -1,8 +1,5 @@
 package utils;
 
-
-import org.apache.commons.lang.StringUtils;
-
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Scanner;
@@ -176,41 +173,4 @@ public class Checker {
             }
         } while (true);
     }
-    public static String inputFileName(String prompt, String rightExtension) {
-        String fileExtension;
-        String fileName = inputStringNotNull(prompt);
-        do {
-                String[] testName = fileName.split("\\.");
-                fileName = testName[0];
-                if (testName.length == 2) {
-                    fileExtension = testName[1];
-                    do {
-                        if (!(fileName.contains("/") || fileName.contains(":") || fileName.contains("*") || fileName.contains("?") || fileName.contains("\"") || fileName.contains("\\") || fileName.contains("<") || fileName.contains(">") || fileName.contains("|"))) {
-                            do {
-                                if (StringUtils.equals(fileExtension, rightExtension)) {
-                                    return String.format("%s.%s", fileName, fileExtension);
-                                } else {
-                                    fileExtension = inputStringNotNull("Invalid file extension!\nInput correct file extension: ");
-                                }
-                            } while (true);
-                        } else {
-                            fileName = inputString("Invalid file name!\nInput correct file name: ");
-                        }
-                    } while (true);
-                } else {
-                    fileName = inputStringNotNull(prompt);
-                }
-        }while (true);
-    }
-    public static boolean fileNameCheck(String fileName, String rightExtension){
-        String[] testName = fileName.split("\\.");
-        if (testName.length == 2) {
-            if (!(fileName.contains("/") || fileName.contains(":") || fileName.contains("*") || fileName.contains("?") || fileName.contains("\"") || fileName.contains("\\") || fileName.contains("<") || fileName.contains(">") || fileName.contains("|"))) {
-                if (StringUtils.equals(testName[1], rightExtension)){
-                    return true;
-                }
-            }
-        }
-        return false;
-        }
 }

@@ -5,6 +5,7 @@ import models.City;
 import java.util.List;
 
 import static utils.Checker.inputLong;
+import static utils.CityLinkedList.isSave;
 
 public class RemoveByIdCommand implements Command {
     private final List<City> collection;
@@ -30,6 +31,7 @@ public class RemoveByIdCommand implements Command {
     @Override
     public void execute() {
         remove(inputLong("Enter city id: "));
+        isSave = false;
     }
 
     @Override
@@ -42,5 +44,6 @@ public class RemoveByIdCommand implements Command {
             id = inputLong("Enter correct city id: ");
         }
         remove(id);
+        isSave = false;
     }
 }
