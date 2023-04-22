@@ -18,7 +18,6 @@ import java.util.Date;
 import static common.AppClient.cities;
 import static utils.Checker.checkLocalDateTime;
 import static utils.CityLinkedList.idRepeat;
-import static utils.CityLinkedList.isSave;
 
 public class City implements Jsonable, Comparable<City> {
     private LocalDateTime creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
@@ -60,6 +59,7 @@ public class City implements Jsonable, Comparable<City> {
         final JsonKey birthdayKey = Jsoner.mintJsonKey("birthday", "");
         final JsonKey idKey = Jsoner.mintJsonKey("id", "");
         final JsonKey creationDateKey = Jsoner.mintJsonKey("creation_date", "");
+        final JsonKey metersAboveSeaLevelKey = Jsoner.mintJsonKey("meters_above_sea_level", "");
         String creationDateString = jsonObject.getString(creationDateKey);
         creationDate = checkLocalDateTime(creationDateString);
         setCreationDate(creationDate);
@@ -68,6 +68,7 @@ public class City implements Jsonable, Comparable<City> {
         JsonObject joCoordinates  = (JsonObject)jsonObject.get ("coordinates");
         setJsonCoordinates(joCoordinates.getDouble(xKey),joCoordinates.getFloat(yKey));
         setPopulation(jsonObject.getLong(populationKey));
+        setMetersAboveSeaLevel(jsonObject.getInteger(metersAboveSeaLevelKey));
         setArea(jsonObject.getDouble(areaKey));
         if (jsonObject.getString(standardOfLivingKey)==null)
             setStandardOfLiving(null);
@@ -109,7 +110,10 @@ public class City implements Jsonable, Comparable<City> {
     }
     public void setId (Long id){
         if (id == null) {
-            throw new NullPointerException("Field id can not be null");
+            throw new NullPointerException("Field id can not be null!");
+        }
+        if (id<1){
+            throw new IllegalArgumentException("Field id can not be less than 1!");
         }
         ArrayList<Long> list = new ArrayList<>();
         boolean right = true;
@@ -176,7 +180,7 @@ public class City implements Jsonable, Comparable<City> {
 
     public void setMetersAboveSeaLevel (int metersAboveSeaLevel){
         if (metersAboveSeaLevel < -432 || metersAboveSeaLevel > 8849) {
-            throw new IllegalArgumentException("Field metersAboveSeaLevel can not be less than -432 or more than 8849");
+            throw new IllegalArgumentException("Field metersAboveSeaLevel can not be less than -432 or more than 8849!");
         }
         this.metersAboveSeaLevel = metersAboveSeaLevel;
     }

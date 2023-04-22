@@ -12,6 +12,9 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 
+import static utils.CityLinkedList.idRepeat;
+import static utils.CityLinkedList.isSave;
+
 
 public class LoadCommand implements Command{
     private final List collection;
@@ -34,9 +37,13 @@ public class LoadCommand implements Command{
                 City city = new City(jo);
                 collection.add(city);
             }
+            collection.sort(new CityComparator());
+            if (idRepeat == 0){
+                isSave = true;
+            }
             System.out.println("Collection uploaded");
         } catch (JsonException | IllegalArgumentException | NullPointerException e) {
-            System.out.println("Can not upload collection, data in the file incorrect!");
+            System.out.printf("Can not upload collection, data in the file incorrect! %s\n", e.getMessage());
         } catch (IOException e) {
             System.out.println("Can not upload collection, the file does not exist!");
         }
@@ -44,11 +51,9 @@ public class LoadCommand implements Command{
     @Override
     public void execute() {
         load("cities.json");
-        collection.sort(new CityComparator());
     }
     @Override
     public void execute(String fileName){
         load(fileName);
-        collection.sort(new CityComparator());
     }
 }
