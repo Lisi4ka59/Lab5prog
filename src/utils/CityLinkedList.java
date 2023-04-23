@@ -9,12 +9,14 @@ import java.io.StringWriter;
 import java.io.Writer;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 import static common.AppClient.cities;
 
 public class CityLinkedList extends LinkedList<City> implements Jsonable {
     public static Long idRepeat = 0L;
+
     public static boolean isSave = true;
     private final LocalDateTime creationCollectionDate;
     public CityLinkedList () {

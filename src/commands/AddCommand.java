@@ -67,15 +67,34 @@ public class AddCommand implements Command {
         long population = Long.parseLong(cityArgs[4]);
         int metersAboveSeaLevel = Integer.valueOf(cityArgs[5]);
         Climate climate = Climate.fromInt(Integer.valueOf(cityArgs[6]));
-        Government government = Government.fromInt(Integer.valueOf(cityArgs[7]));
-        StandardOfLiving standardOfLiving = StandardOfLiving.fromInt(Integer.valueOf(cityArgs[8]));
-        long age = Long.parseLong(cityArgs[9]);
-        Date birthday = checkDate(cityArgs[10]);
+        Government government = null;
+        if (!"null".equals(cityArgs[7])){
+            government = Government.fromInt(Integer.valueOf(cityArgs[7]));
+        }
+        StandardOfLiving standardOfLiving = null;
+        if (!"null".equals(cityArgs[8])){
+            standardOfLiving = StandardOfLiving.fromInt(Integer.valueOf(cityArgs[8]));
+        }
+        boolean testAge = false;
+        long age = 1;
+        if (!"null".equals(cityArgs[9])){
+            age = Long.parseLong(cityArgs[9]);
+            testAge = true;
+        }
+        boolean testBirthday = false;
+        Date birthday = checkDate("1.1.1");
+        if (!"null".equals(cityArgs[10])){
+            birthday = checkDate(cityArgs[10]);
+            testBirthday = true;
+        }
         if (x<=-25 || area <= 0 || population <= 0 || metersAboveSeaLevel>8849 || metersAboveSeaLevel<-432 ||age <=0){
             throw new IllegalArgumentException();
         }
         Coordinates coordinates = new Coordinates(x, y);
-        Human governor = new Human(age, birthday);
+        Human governor = null;
+        if (testAge && testBirthday){
+            governor = new Human(age, birthday);
+        }
         return new City(name, coordinates, population, area, metersAboveSeaLevel, climate, government, standardOfLiving, governor);
     }
 }

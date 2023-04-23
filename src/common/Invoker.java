@@ -27,21 +27,25 @@ public class Invoker {
         commands.put("execute_script", new ExecuteScriptCommand(collection));
     }
 
-    public void run(String commandText)
-    {
-        String[] command =  commandText.split("\s+");
-        if (commands.containsKey(command[0]))
-        {
-            Command cmd = commands.get(command[0]);
-            if (command.length==1)
-                cmd.execute();
-            else
-                cmd.execute(command[1]);
-        }
-        else {
-            if (!commandText.trim().isEmpty()) {
-                System.out.println("Unknown command. Type \"help\" to see list of commands");
+    public void run(String commandText) {
+        try {
+            String[] command =  commandText.split("\s+");
+            if (commands.containsKey(command[0]))
+            {
+                Command cmd = commands.get(command[0]);
+                if (command.length==1)
+                    cmd.execute();
+                else
+                    cmd.execute(command[1]);
             }
+            else {
+                if (!commandText.trim().isEmpty()) {
+                    System.out.println("Unknown command. Type \"help\" to see list of commands");
+                }
+            }
+        } catch (Exception e){
+            System.out.printf("Error while execution command %s\n", commandText);
         }
+
     }
 }

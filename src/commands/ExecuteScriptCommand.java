@@ -13,25 +13,43 @@ import static utils.CityLinkedList.isSave;
 
 
 public class ExecuteScriptCommand implements Command{
+    static ArrayList<String> exeRecursion = new ArrayList<>();
     private final List collection;
     public ExecuteScriptCommand(List collection){
 
         this.collection = collection;
     }
     private void exe(String fileName){
-        Invoker invoker = new Invoker(collection);
-        for (String line: ReadFile(fileName)){
-            System.out.println("Running ..." + line);
-            if (line!=null && !line.startsWith("execute_script"))
-                invoker.run(line);
-            else
-                System.out.println("Executing the \"execute_script\" command can be very dangerous as it can cause recursion!");
+        System.out.printf("Start of executing script from file \"%s\"\n", fileName);
+        if (exeRecursion.contains(fileName)) {
+            System.out.printf("Can not execute script from file %s, because it can be very dangerous as it can cause recursion!\n", fileName);
+            return;
         }
+
+        exeRecursion.add(fileName);
+        Invoker invoker = new Invoker(collection);
+        ArrayList<String> lines = ReadFile(fileName);
+        for (int i = 0; i < lines.size();) {
+            String line = lines.get(i);
+            System.out.println("Running ..." + line);
+            if ("add".equals(line)){
+                int j=i+12;
+                String add = line+" ";
+                i++;
+                for (; i < j; i++)
+                    add = add + lines.get(i) + (i!=j-1 ? ",":"");
+                line = add;
+            }
+            else
+                i++;
+           invoker.run(line);
+        }
+        exeRecursion.remove(fileName);
+        System.out.printf("End of executing script from file \"%s\"\n", fileName);
     }
     @Override
     public void execute() {
         execute("commands.txt");
-        isSave = false;
     }
 
     @Override

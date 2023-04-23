@@ -1,12 +1,26 @@
 load cities.json
-help
-show
+
 info
+
+
+clear
+null
 add P,1,1,1,1,1,1,1,1,1,1.1.1
 add Pe,1,1,1,1,1,1,1,1,1,1.1.1
 add Per,1,1,1,1,1,1,1,1,1,1.1.1
-add Perm,1,1,1,1,1,1,1,1,1,1.1.1
-remove_by_id 1681562362968
-save .json
-clear
-save null.json
+add
+Perm
+1
+1
+1
+1
+1
+1
+null
+1
+1
+1.1.1
+show
+execute_script
+execute_script
+execute_script
