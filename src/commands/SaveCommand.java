@@ -23,6 +23,8 @@ public class SaveCommand implements Command{
             writer.write(json);
             writer.close();
             System.out.println("Collection saved successfully");
+        } catch (SecurityException e) {
+            System.out.printf("Do not have sufficient rights to write file %s\n", fileName);
         } catch (Exception ex) {
             System.out.printf("Error while saving file! %s\n", ex.getMessage());
         }

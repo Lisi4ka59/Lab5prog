@@ -60,7 +60,7 @@ public class ExecuteScriptCommand implements Command{
 
     private ArrayList<String> ReadFile(String filename){
         ArrayList<String> lines = new ArrayList<>();
-        try{
+        try {
 
             FileInputStream fStream = new FileInputStream(filename);
             BufferedReader br = new BufferedReader(new InputStreamReader(fStream));
@@ -69,7 +69,8 @@ public class ExecuteScriptCommand implements Command{
             while ((line = br.readLine()) != null) {
                 lines.add(line);
             }
-
+        } catch (SecurityException e) {
+            System.out.printf("Do not have sufficient rights to execute file %s\n", filename);
         } catch (IOException e) {
             System.out.printf("File %s does not exist\n", filename);
         }

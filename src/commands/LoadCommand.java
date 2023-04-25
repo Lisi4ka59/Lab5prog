@@ -44,8 +44,10 @@ public class LoadCommand implements Command{
             System.out.println("Collection uploaded");
         } catch (JsonException | IllegalArgumentException | NullPointerException e) {
             System.out.printf("Can not upload collection, data in the file incorrect! %s\n", e.getMessage());
+        } catch (SecurityException e) {
+            System.out.printf("Do not have sufficient rights to read file %s\n", fileName);
         } catch (IOException e) {
-            System.out.println("Can not upload collection, the file does not exist!");
+            System.out.printf("Can not upload collection, the file %s does not exist!\n", fileName);
         }
     }
     @Override
